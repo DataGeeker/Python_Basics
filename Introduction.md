@@ -1,37 +1,37 @@
-# <a name="introduction"></a>Introduction
+# <a name="introduction"></a>介绍
 
-* [Installation](#installation)
-* [Hello World example](#hello-world-example)
-* [Python Interpreter](#python-interpreter)
-* [Python Standard Library](#python-standard-library)
+* [安装](#installation)
+* [Hello World 示例](#hello-world-example)
+* [Python 解释器](#python-interpreter)
+* [Python 标准库](#python-standard-library)
 
 
-From [wikipedia](https://en.wikipedia.org/wiki/Python_(programming_language))
->Python is a widely used high-level, general-purpose, interpreted, dynamic programming language. Its design philosophy emphasizes code readability, and its syntax allows programmers to express concepts in fewer lines of code than possible in languages such as C++ or Java. The language provides constructs intended to enable clear programs on both a small and large scale
+来自 [维基百科](https://wc.yooooo.us/d2lraS9QeXRob24hemg=)
+>Python是一种广泛使用的高级编程语言，属于通用型编程语言，由吉多·范罗苏姆 创造，第一版发布于 1991 年。可以视之为一种改良 (加入一些其他编程语言的优点，如面向对象) 的 LISP。作为一种解释型语言，Python 的设计哲学强调代码的可读性和简洁的语法（尤其是使用空格缩进划分代码块，而非使用大括号或者关键词）。相比于 C++ 或 Java，Python 让开发者能够用更少的代码表达想法。不管是小型还是大型程序，该语言都试图让程序的结构清晰明了。
 
-[Guido van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum) is the author of Python programming language, and continues to oversee the Python development process
-
-<br>
-
-### <a name="installation"></a>Installation
-
-* Get Python for your OS from official website - https://www.python.org/ 
-    * Most Linux distributions come with Python by default
-* See also [this guide](https://itsfoss.com/python-setup-linux/) for more detail as well as how to set up virtual environment, how to use **pip** (NEVER use **sudo pip** unless you know what you are doing)
+[吉多·范罗苏姆](https://wc.yooooo.us/wiki/%E5%90%89%E5%A4%9A%C2%B7%E8%8C%83%E7%BD%97%E8%8B%8F%E5%A7%86)（荷兰语：Guido van Rossum，1956年1月31日－），生于荷兰哈勒姆，计算机程序员，为Python程序设计语言的最初设计者及主要架构师。在Python社区，吉多·范罗苏姆被人们认为是“仁慈的独裁者”（BDFL），意思是他仍然关注Python的开发进程，并在必要的时刻做出决定。
 
 <br>
 
-* Examples presented here is for **Unix-like systems**, Python version 3 and uses **bash** shell
-* You can also run Python code online
-    * [pythontutor](http://www.pythontutor.com/visualize.html#mode=edit) - code execution in Python 2 and 3 versions, visualizing code flow and sample programs are among its features
-    * [jupyter](https://try.jupyter.org/) - web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text
-    * [ideone](https://ideone.com/) - online compiler and debugging tool which allows you to compile source code and execute it online in more than 60 programming languages
+### <a name="installation"></a>安装
+
+* 从官网获取适合你系统的Python - https://www.python.org/ 
+    * 大多数linux发行版默认安装了Python
+* 另 见[这个指南](https://itsfoss.com/python-setup-linux/)获取更多细节和如何设置虚拟环境，如何使用**pip**（绝不要使用 **sudo pip**除非你自己知道自己在做什么）。
+
+<br>
+
+* 这里示例使用**Unix-like 系统**，Python版本3并且使用**bash**shell
+* 你也可以线上运行Python代码
+    * [pythontutor](http://www.pythontutor.com/visualize.html#mode=edit) - python 2和python 3版本代码执行器，可视化代码流，有样例程序
+    * [jupyter](https://try.jupyter.org/) - 一款web应用：允许你创建和分享包含代码、公式、可视化以及解释的动态文档
+    * [ideone](https://ideone.com/) - 在线编译和调试工具，允许你在线上执行和编译超过60种编程语言
     * [Python Interpreter shell](https://www.python.org/shell/)
-* It is assumed that you are familiar with command line. If not, check out [this basic tutorial on ryanstutorials](http://ryanstutorials.net/linuxtutorial/) and [this list of curated resources for Linux](https://github.com/learnbyexample/scripting_course/blob/master/Linux_curated_resources.md)
+* 假设你熟悉命令行。如果没有，查阅[ryanstutorials上的基本教程](http://ryanstutorials.net/linuxtutorial/)和[Linux整合资源列表](https://github.com/ShixiangWang/scripting_course/blob/master/Linux_curated_resources.md)
 
 <br>
 
-### <a name="hello-world-example"></a>Hello World example
+### <a name="hello-world-example"></a>Hello World 示例
 
 Let's start with simple a Python program and how to run it
 
