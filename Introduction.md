@@ -15,17 +15,17 @@
 
 ### <a name="installation"></a>安装
 
-* 从官网获取适合你系统的Python - https://www.python.org/
-    * 大多数linux发行版默认安装了Python
+* 从官网获取适合你系统的Python - https://www.python.org/ 
+    * 大多数linux发行版默认安装了Python
 * 另 见[这个指南](https://itsfoss.com/python-setup-linux/)获取更多细节和如何设置虚拟环境，如何使用**pip**（绝不要使用 **sudo pip**除非你自己知道自己在做什么）。
 
 <br>
 
-* 这里示例使用**类Unix系统**，Python版本3并且使用**bash**shell
+* 这里示例使用**类Unix系统**，Python版本3并且使用**bash** shell
 * 你也可以线上运行Python代码
-    * [pythontutor](http://www.pythontutor.com/visualize.html#mode=edit) - python 2和python 3版本代码执行器，可视化代码流，有样例程序
-    * [jupyter](https://try.jupyter.org/) - 一款web应用：允许你创建和分享包含代码、公式、可视化以及解释的动态文档
-    * [ideone](https://ideone.com/) - 在线编译和调试工具，允许你在线上执行和编译超过60种编程语言
+    * [pythontutor](http://www.pythontutor.com/visualize.html#mode=edit) - python 2和python 3版本代码执行器，可视化代码流，有样例程序
+    * [jupyter](https://try.jupyter.org/) - 一款web应用：允许你创建和分享包含代码、公式、可视化以及解释的动态文档
+    * [ideone](https://ideone.com/) - 在线编译和调试工具，允许你在线上执行和编译超过60种编程语言
     * [Python Interpreter shell](https://www.python.org/shell/)
 * 假设你熟悉命令行。如果没有，查阅[ryanstutorials上的基本教程](http://ryanstutorials.net/linuxtutorial/)和[Linux整合资源列表](https://github.com/ShixiangWang/scripting_course/blob/master/Linux_curated_resources.md)
 
