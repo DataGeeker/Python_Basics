@@ -17,7 +17,7 @@
 
 * 从官网获取适合你系统的Python - https://www.python.org/ 
     * 大多数linux发行版默认安装了Python
-* 另 见[这个指南](https://itsfoss.com/python-setup-linux/)获取更多细节和如何设置虚拟环境，如何使用**pip**（绝不要使用 **sudo pip**除非你自己知道自己在做什么）。
+* 另见[这个指南](https://itsfoss.com/python-setup-linux/)获取更多细节和如何设置虚拟环境，如何使用**pip**（绝不要使用**sudo pip**除非你自己知道自己在做什么）。
 
 <br>
 
