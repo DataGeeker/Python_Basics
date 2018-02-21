@@ -1,14 +1,14 @@
-# <a name="functions"></a>Functions
+# <a name="functions"></a>函数
 
-* [def](#def)
-* [print function](#print-function)
-* [range function](#range-function)
-* [type function](#type-function)
-* [Variable Scope](#variable-scope)
+* [def：定义函数](#def)
+* [print 函数](#print-function)
+* [range 函数](#range-function)
+* [type 函数](#type-function)
+* [变量作用域](#variable-scope)
 
 <br>
 
-### <a name="def"></a>def
+### <a name="def"></a>def：定义函数
 
 ```python
 #!/usr/bin/python3
@@ -21,14 +21,14 @@ def greeting():
 
 greeting()
 
-# ----- function with arguments -----
+# ----- 带参数的函数 -----
 def sum_two_numbers(num1, num2):
     total = num1 + num2
     print("{} + {} = {}".format(num1, num2, total))
 
 sum_two_numbers(3, 4)
 
-# ----- function with return value -----
+# ----- 带返回值的函数 -----
 def num_square(num):
     return num * num
 
@@ -37,27 +37,27 @@ print(num_square(2))
 print(num_square(my_num))
 ```
 
-* The `def` keyword is used to define functions
-* Functions have to be defined before use
-* A common syntax error is leaving out `:` at end of `def` statement
-* Block of code for functions, control structures, etc are distinguished by indented code
-    * 4-space indentation is recommended
-    * [Python docs - Coding Style](https://docs.python.org/3/tutorial/controlflow.html#intermezzo-coding-style)
-* The default `return` value is `None`
-* [How variables are passed to functions in Python](http://robertheaton.com/2014/02/09/pythons-pass-by-object-reference-as-explained-by-philip-k-dick/)
-* `format` is covered in next topic
+* `def`关键字用于定义函数
+* 函数必须在使用前定义
+* 一个常见的错误是忘记了`def`声明语句后的`:`
+* 函数、控制结构等等代码块都是根据缩进进行区分
+    * 推荐使用4个空格缩进
+    * [Python文档 - 编码风格](https://docs.python.org/3/tutorial/controlflow.html#intermezzo-coding-style)
+* 默认`return`值是`None`
+* [在Python怎么将变量传递给函数](http://robertheaton.com/2014/02/09/pythons-pass-by-object-reference-as-explained-by-philip-k-dick/)
+* `format`包含在下一个主题中
 
-```
-$ ./functions.py 
+```shell
+$ ./functions.py
 -----------------------------
-         Hello World         
+         Hello World
 -----------------------------
 3 + 4 = 7
 4
 9
 ```
 
-**Default valued arguments**
+**默认参数**
 
 ```python
 #!/usr/bin/python3
@@ -78,29 +78,29 @@ print("\nStyle character =")
 greeting(style_char='=')
 ```
 
-* Often, functions can have a default behavior and if needed changed by passing relevant argument
+* 通常，如果函数需要根据相关参数改变，可以设定一个默认的行为
 
-```
-$ ./functions_default_arg_value.py 
+```shell
+$ ./functions_default_arg_value.py
 Default style
 -----------------------------
-         Hello World         
+         Hello World
 -----------------------------
 
 Style character *
 *****************************
-         Hello World         
+         Hello World
 *****************************
 
 Style character =
 =============================
-         Hello World         
+         Hello World
 =============================
 ```
 
-* Triple quoted comment describing function purpose is a usually followed guideline 
-* To avoid distraction from example code, docstrings for programs and functions won't be generally used in this tutorial
-    * See [Docstrings](./Docstrings.md) chapter for examples and discussion
+* 三引号注释常用于描述函数的功能目的
+* 为了避免示例代码分散注意力，这个指南中不会经常为函数和程序使用文档字符串（docstrings）
+    * 查看[Docstrings](./Docstrings.md)章节的例子和讨论
 
 ```python
 def num_square(num):
@@ -111,32 +111,32 @@ def num_square(num):
     return num * num
 ```
 
-**Further Reading**
+**进一步阅读**
 
-There are many more ways to call a function and other types of declarations, refer the below links for more info
+有许多调用函数和其他声明类型的方式，参考下面的链接获取更多信息：
 
-* [Python docs - defining functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)
-* [Python docs - Built-in Functions](https://docs.python.org/3/library/functions.html)
+* [Python文档 - 定义函数](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)
+* [Python文档 - 内置函数](https://docs.python.org/3/library/functions.html)
 
 <br>
 
-### <a name="print-function"></a>print function
+### <a name="print-function"></a>print函数
 
-* By default, `print` function adds newline character
-* This can be changed by passing our own string to the `end` argument
+* 默认`print`函数会添加换行符
+* 这可以通过`end`参数传入我们自己想要的字符串进行更改
 
 ```python
 >>> print("hi")
 hi
 >>> print("hi", end='')
-hi>>> 
+hi>>>
 >>> print("hi", end=' !!\n')
 hi !!
->>> 
+>>>
 ```
 
-* The [help](https://docs.python.org/3/library/functions.html#help) function can be used to get quick help from interpreter itself
-* Press `q` to return back from help page
+* [help](https://docs.python.org/3/library/functions.html#help)函数可以用来从解释器获取函数的快速使用帮助
+* 按`q`从帮助页面退出
 
 ```python
 >>> help(print)
@@ -145,7 +145,7 @@ Help on built-in function print in module builtins:
 
 print(...)
     print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
-    
+
     Prints the values to a stream, or to sys.stdout by default.
     Optional keyword arguments:
     file:  a file-like object (stream); defaults to the current sys.stdout.
@@ -154,8 +154,8 @@ print(...)
     flush: whether to forcibly flush the stream.
 ```
 
-* Multiple arguments to `print` function can be passed by `,` separation
-* The default `sep` is single space character
+* 传入`print`函数的多个参数可以通过`,`分隔
+* 默认的`sep`值是单个空格
 
 ```python
 >>> a = 5
@@ -172,8 +172,8 @@ print(...)
 3
 ```
 
-* When printing variables, the [__str__](https://docs.python.org/3/reference/datamodel.html#object.__str__) method is called which gives the string representation
-* So, explicit conversion is not needed unless concatenation is required
+* 当打印变量时会调用[__str__](https://docs.python.org/3/reference/datamodel.html#object.__str__)方法输出字符结果
+* 所以，除非需要粘连字符串，我们不需要显式地指定输出类型
 
 ```python
 >>> greeting = 'Hello World'
@@ -197,7 +197,7 @@ TypeError: Can't convert 'int' object to str implicitly
 She bought 42 apples
 ```
 
-* As an alternative, use multiple arguments and change `sep` accordingly
+* 作为备用选项，使用多个参数并根据情况改变`sep`分隔符
 
 ```python
 >>> print("She bought", num, "apples")
@@ -211,8 +211,8 @@ No. of items: 15
 No. of items:15
 ```
 
-* To redirect print output to [stderr](https://stackoverflow.com/questions/3385201/confused-about-stdin-stdout-and-stderr) instead of default stdout, change the `file` argument
-* See also [sys.exit()](https://docs.python.org/3/library/sys.html#sys.exit)
+* 为了重定向打印输出到[stderr](https://stackoverflow.com/questions/3385201/confused-about-stdin-stdout-and-stderr)，我们更改`file`参数
+* 另见[sys.exit()](https://docs.python.org/3/library/sys.html#sys.exit)
 
 ```python
 >>> import sys
@@ -220,7 +220,7 @@ No. of items:15
 Error!! Not a valid input
 ```
 
-* `str.format()` can be used to style strings and handle multiple variables more elegantly than string concatenation
+* `str.format()`可以用来设定字符串的风格，处理多个字符串时比粘连方式更优雅
 
 ```python
 >>> num1 = 42
@@ -229,19 +229,19 @@ Error!! Not a valid input
 >>> '{} + {} = {}'.format(num1, num2, num1 + num2)
 '42 + 7 = 49'
 
-# or save formatting in a variable and use wherever needed
+# 或者将格式保存为一个变量然后在需要的地方使用
 >>> op_fmt = '{} + {} = {}'
 >>> op_fmt.format(num1, num2, num1 + num2)
 '42 + 7 = 49'
 >>> op_fmt.format(num1, 29, num1 + 29)
 '42 + 29 = 71'
 
-# and of course the expression can be used inside print directly
+# 在print函数内部使用也当然没问题
 >>> print('{} + {} = {}'.format(num1, num2, num1 + num2))
 42 + 7 = 49
 ```
 
-* using numbered arguments
+* 使用有序的参数
 
 ```python
 >>> num1
@@ -252,32 +252,32 @@ Error!! Not a valid input
 42 + 7 * 42 = 336
 ```
 
-* number formatting - specified using optional argument number, followed by `:` and then the formatting style
+* 数值格式——使用可选的参数值接`:`和格式风格进行指定
 
 ```python
 >>> appx_pi = 22 / 7
 >>> appx_pi
 3.142857142857143
 
-# restricting number of digits after decimal point
-# value is rounded off
+# 在小数点后限制数字的位数
+# 数值会进行取舍
 >>> print("{0:.2f}".format(appx_pi))
 3.14
 >>> print("{0:.3f}".format(appx_pi))
 3.143
 
-# aligning
+# 对齐
 >>> print("{0:<10.3f} and 5.12".format(appx_pi))
 3.143      and 5.12
 >>> print("{0:>10.3f} and 5.12".format(appx_pi))
      3.143 and 5.12
 
-# zero filling
+# 用0填充
 >>> print("{0:08.3f}".format(appx_pi))
 0003.143
 ```
 
-* different base
+* 不同的基数
 
 ```python
 >>> print("42 in binary = {:b}".format(42))
@@ -287,7 +287,7 @@ Error!! Not a valid input
 >>> print("241 in hex = {:x}".format(241))
 241 in hex = f1
 
-# add # for 0b/0o/0x prefix
+# 通过#添加0b/0o/0x前缀
 >>> print("42 in binary = {:#b}".format(42))
 42 in binary = 0b101010
 
@@ -295,22 +295,22 @@ Error!! Not a valid input
 >>> hex_str
 '2a'
 
-# can also use format built-in function
+# 也可以使用内置的format函数
 >>> format(42, 'x')
 '2a'
 >>> format(42, '#x')
 '0x2a'
 
-# converting string to int
+# 将字符串转换为整型
 >>> int(hex_str, base=16)
 42
 >>> int('0x2a', base=16)
 42
 ```
 
-* similar to the `r` raw string prefix, using `f` prefix allows to represent format strings
-    * introduced in Python v3.6
-* similar to `str.format()`, the variables/expressions are specified within `{}`
+* 跟`r`前缀相似，使用`f`前缀可以用来表示格式化的字符串
+    * Python v3.6引进
+* 跟`str.format()`相似，在`{}`中指定变量/表达式
 
 ```python
 >>> num1 = 42
@@ -330,22 +330,22 @@ Error!! Not a valid input
 '0x14'
 ```
 
-**Further Reading**
+**进一步阅读**
 
-* [Python docs - formatstrings](https://docs.python.org/3/library/string.html#formatstrings) - for more info and examples
-* [Python docs - f-strings](https://docs.python.org/3/reference/lexical_analysis.html#f-strings) - for more examples and caveats
+* [Python文档 - 格式化字符串](https://docs.python.org/3/library/string.html#formatstrings) - 更多信息和例子
+* [Python docs - f-strings](https://docs.python.org/3/reference/lexical_analysis.html#f-strings) - 更多例子和告诫
 
 <br>
 
-### <a name="range-function"></a>range function
+### <a name="range-function"></a>range 函数
 
-* By default `start=0` and `step=1`, so they can be skipped or defined as appropriate
+* 默认参数`start=0`和`step=1`,因此它们可以跳过或者根据需要合适地设定
     * `range(stop)`
     * `range(start, stop)`
     * `range(start, stop, step)`
-* Note that `range` output doesn't include `stop` value - it is always upto `stop` value but not including it
-* See [Lists](./Lists.md) chapters for discussion and examples on lists
-* [Python docs - Ranges](https://docs.python.org/3/library/stdtypes.html#typesseq-range) - for more info and examples
+* 注意`range`的输出不包含`stop`值（左闭右开）
+* 查阅[列表](./Lists.md)章节获取列表的讨论和例子
+* [Python文档 - Ranges](https://docs.python.org/3/library/stdtypes.html#typesseq-range) - 更多信息和例子
 
 ```python
 >>> range(5)
@@ -366,9 +366,9 @@ range(0, 5)
 
 <br>
 
-### <a name="type-function"></a>type function
+### <a name="type-function"></a>type函数
 
-Useful to check data type of a variable or value
+用于检查变量和数值的数据类型
 
 ```python
 >>> type(5)
@@ -395,7 +395,7 @@ Useful to check data type of a variable or value
 
 <br>
 
-### <a name="variable-scope"></a>Variable Scope
+### <a name="variable-scope"></a>变量作用域
 
 ```python
 #!/usr/bin/python3
@@ -407,15 +407,15 @@ num = 25
 print_num()
 ```
 
-* Variables defined before function call are visible within the function scope too 
-* [Python docs - Default Argument Values](https://docs.python.org/3/tutorial/controlflow.html#default-argument-values) - see description for when default values are evaluated
+* 在函数调用之前定义的变量在函数作用域内可视
+* [Python docs - 默认参数值](https://docs.python.org/3/tutorial/controlflow.html#default-argument-values) - 查看默认数值使用的描述
 
 ```
-$ ./variable_scope_1.py 
+$ ./variable_scope_1.py
 Yeehaw! num is visible in this scope, its value is: 25
 ```
 
-What happens when a variable declared within a block is used outside of it?
+在函数代码块内声明的一个变量在代码块之外使用会发生什么？
 
 ```python
 #!/usr/bin/python3
@@ -427,17 +427,17 @@ square_of_num(5)
 print("5 * 5 = {}".format(sqr_num))
 ```
 
-* Here, `sqr_num` is declared inside `square_of_num` function and not accessible outside the block
+* 这里，`sqr_num`声明在`square_of_num`函数内，在代码块外不能够使用
 
 ```
-$ ./variable_scope_2.py 
+$ ./variable_scope_2.py
 Traceback (most recent call last):
   File "./variable_scope_2.py", line 7, in <module>
     print("5 * 5 = {}".format(sqr_num))
 NameError: name 'sqr_num' is not defined
 ```
 
-One way to overcome this is to use the `global` keyword
+一种解决办法是使用`global`关键字
 
 ```python
 #!/usr/bin/python3
@@ -450,14 +450,14 @@ square_of_num(5)
 print("5 * 5 = {}".format(sqr_num))
 ```
 
-* Now, we can access `sqr_num` even outside the function definition
+* 现在，即使在函数外我们也能够使用`sqr_num`
 
 ```
 $ ./variable_scope_3.py
 5 * 5 = 25
 ```
 
-If a variable name is same outside and within function definition, the one inside the function will stay local to the block and not affect the one outside of it
+如果一个变量名在函数内外都进行了定义，函数内的变量不会影响函数外变量的使用
 
 ```python
 #!/usr/bin/python3
@@ -472,15 +472,15 @@ square_of_num(5)
 print("Whoops! sqr_num is still {}!".format(sqr_num))
 ```
 
-* Note that using `global sqr_num` will affect the `sqr_num` variable outside the function
+* 注意使用`global sqr_num`会影响函数外的`sqr_num`
 
 ```
-$ ./variable_scope_4.py 
+$ ./variable_scope_4.py
 5 * 5 = 25
 Whoops! sqr_num is still 4!
 ```
 
-**Further Reading**
+**进一步阅读**
 
-* [Python docs - scope example](https://docs.python.org/3/tutorial/classes.html#scopes-and-namespaces-example)
-* [Python docs - global statement](https://docs.python.org/3/reference/simple_stmts.html#the-global-statement)
+* [Python文档 - 作用域示例](https://docs.python.org/3/tutorial/classes.html#scopes-and-namespaces-example)
+* [Python文档 - global语句](https://docs.python.org/3/reference/simple_stmts.html#the-global-statement)
