@@ -23,7 +23,7 @@ Python介绍 - 语法、与shell命令工作、文件、文本处理等等...
 * [获取用户输入](./User_input.md)
     * 整数输入、浮点输入、字符串输入
 * [执行外部命令](./Executing_external_commands.md)
-    * 调用Shell命令、用扩展包调用Shell命令、获取命令输出和重定向
+    * 调用Shell命令、用扩展调用Shell命令、获取命令输出和重定向
 * [控制结构](./Control_structures.md)
     * 条件检查, if, for, while, continue and break
 * [列表](./Lists.md)
