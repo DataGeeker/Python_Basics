@@ -1,17 +1,17 @@
-# <a name="number-and-string-data-types"></a>Number and String data types
+# <a name="number-and-string-data-types"></a>数值和字符串数据类型
 
-* [Numbers](#numbers)
-* [String](#string)
-* [Constants](#constants)
-* [Built-in Operators](#built-in-operators)
+* [数值](#numbers)
+* [字符串](#string)
+* [常量](#constants)
+* [内置操作符](#built-in-operators)
 
-Variable data type is automatically determined by Python. They only need to be assigned some value before using it elsewhere - like print function or part of expression
+Python会自动确定变量数据类型。变量在其他地方使用之前仅需要赋值。
 
 <br>
 
-### <a name="numbers"></a>Numbers
+### <a name="numbers"></a>数值
 
-* Integer examples
+* 整数例子
 
 ```python
 >>> num1 = 7
@@ -22,15 +22,15 @@ Variable data type is automatically determined by Python. They only need to be a
 >>> total
 49
 
-# no limit to integer precision, only limited by available memory
+# 对整数精度没有限制，仅受限于可分配的内存
 >>> 34 ** 32
 10170102859315411774579628461341138023025901305856
 
-# using single / gives floating point output
+# 使用单个 / （除法）会返回浮点结果
 >>> 9 / 5
 1.8
 
-# using double / gives only the integer portion, no rounding
+# 使用两个 / （整除）仅返回整数部分（没有取舍）
 >>> 9 // 5
 1
 
@@ -38,7 +38,7 @@ Variable data type is automatically determined by Python. They only need to be a
 4
 ```
 
-* Floating point examples
+* 浮点数例子
 
 ```python
 >>> appx_pi = 22 / 7
@@ -55,7 +55,7 @@ Variable data type is automatically determined by Python. They only need to be a
 49.16
 ```
 
-* the [E scientific notation](https://en.wikipedia.org/wiki/Scientific_notation#E_notation) can be used as well
+* [E 科学计数法](https://en.wikipedia.org/wiki/Scientific_notation#E_notation)非常有用
 
 ```python
 >>> sci_num1 = 3.982e5
@@ -67,9 +67,9 @@ Variable data type is automatically determined by Python. They only need to be a
 5.443e+22
 ```
 
-* Binary numbers are prefixed with `0b` or `0B` (i.e digit 0 followed by lower/upper case letter b)
-* Octal numbers are prefixed with `0o` or `0O` (i.e digit 0 followed by lower/upper case letter o)
-* Similarly, Hexadecimal numbers are prefixed with `0x` or `0X`
+* 二进制数值用`0b`或`0B`前缀表示
+* 八进制数值用`0o`或`0O`前缀表示
+* 相似地，十六进制用`0x`或`0X`前缀表示
 
 ```python
 >>> bin_num = 0b101
@@ -87,8 +87,8 @@ Variable data type is automatically determined by Python. They only need to be a
 25
 ```
 
-* `_` can be used between digits for readability
-    * introduced in Python v3.6
+* `_`分隔让数字更具有可读性
+    * Python v3.6 引入
 
 ```python
 >>> 1_000_000
@@ -98,26 +98,26 @@ Variable data type is automatically determined by Python. They only need to be a
 >>> 0xff_ab1
 1047217
 
-# f-strings formatting explained in a later chapter
+# f-strings格式在后面章节解释
 >>> num = 34 ** 32
 >>> print(f'{num:_}')
 10_170_102_859_315_411_774_579_628_461_341_138_023_025_901_305_856
 ```
 
-**Further Reading**
+**进一步阅读**
 
-* [Python docs - numbers](https://docs.python.org/3/tutorial/introduction.html#numbers)
-* [decimal](https://docs.python.org/3/library/decimal.html)
-* [fractions](https://docs.python.org/3/library/fractions.html)
-* [complex](https://docs.python.org/3/library/functions.html#complex)
-* [Python docs - keywords](https://docs.python.org/3/reference/lexical_analysis.html#keywords) - do not use these as variables
+* [Python文档 - 数值](https://docs.python.org/3/tutorial/introduction.html#numbers)
+* [十进制](https://docs.python.org/3/library/decimal.html)
+* [分数](https://docs.python.org/3/library/fractions.html)
+* [复数](https://docs.python.org/3/library/functions.html#complex)
+* [Python文档 - 关键字](https://docs.python.org/3/reference/lexical_analysis.html#keywords) - 不要把它们作为变量使用
 
 <br>
 
-### <a name="string"></a>String
+### <a name="string"></a>字符串
 
-* strings can be declared using single or double quotes
-* Use `\` to escape quotes which are part of string itself if the string contains both single and double quotes
+* 使用单/双引号可以声明一个字符串
+* 使用`\`进行反义操作：跳过属于字符串本身的引号
 
 ```python
 >>> str1 = 'This is a string'
@@ -138,7 +138,7 @@ It's a nice and warm day
 It's a nice and warm day
 ```
 
-* Escape sequences like newline character `\n` can be used within string declaration
+* 特殊含义符号，像换行符`\n`可以在字符串中使用
 
 ```python
 >>> colors = 'Blue\nRed\nGreen'
@@ -151,20 +151,20 @@ Red
 Green
 ```
 
-* Use `r` prefix (stands for **raw**) if you do not want escape sequences to be interpreted
-* It is commonly used with regular expressions, see [Pattern matching and extraction](./Text_Processing.md#pattern-matching-and-extraction) for examples
+* 使用前缀`r`(代表**raw**)如果你想要字符串被原样输出
+* 通常用于正则表达式，参见[模式匹配和抽取](./Text_Processing.md#pattern-matching-and-extraction)示例
 
 ```bash
 >>> raw_str = r'Blue\nRed\nGreen'
 >>> print(raw_str)
 Blue\nRed\nGreen
 
-# to see how the string is stored internally
+# 查看字符串内部是如何存储的
 >>> raw_str
 'Blue\\nRed\\nGreen'
 ```
 
-* String concatenation and repetition
+* 字符串粘连和重复
 
 ```python
 >>> str1 = 'Hello'
@@ -178,67 +178,67 @@ Hello World
 
 >>> word = 'buffalo '
 >>> print(word * 8)
-buffalo buffalo buffalo buffalo buffalo buffalo buffalo buffalo 
+buffalo buffalo buffalo buffalo buffalo buffalo buffalo buffalo
 
-# Python v3.6 allows variable interpolation with f-strings
+# Python v3.6 允许变量使用f-strings进行插入
 >>> msg = f'{str1} there'
 >>> msg
 'Hello there'
 ```
 
-* Triple quoted strings
-* like single line strings, `"""` or `'''` can be used as required as well as escape characters using `\`
+* 三引号
+* `"""`或`'''`可以用于多行注释、字符串以及使用`\`反义
 
 ```python
 #!/usr/bin/python3
 
 """
-This line is part of multiline comment
+这一行是多行注释的一部分
 
 This program shows examples of triple quoted strings
 """
 
-# assigning multiple line string to variable
+# 把多行字符串赋值给变量
 poem = """\
-The woods are lovely, dark and deep,   
-But I have promises to keep,   
-And miles to go before I sleep,   
+The woods are lovely, dark and deep,
+But I have promises to keep,
+And miles to go before I sleep,
 And miles to go before I sleep.
 """
 
 print(poem, end='')
 ```
 
-* Triple quoted strings also help in documentation, see [Docstrings](./Docstrings.md) chapter for examples
+* 三引号括起的字符串在说明文档中也有用，参见[Docstrings](./Docstrings.md)章节示例
 
 ```
-$ ./triple_quoted_string.py 
-The woods are lovely, dark and deep,   
-But I have promises to keep,   
-And miles to go before I sleep,   
+$ ./triple_quoted_string.py
+The woods are lovely, dark and deep,
+But I have promises to keep,
+And miles to go before I sleep,
 And miles to go before I sleep.
 $
 ```
 
-**Further Reading**
+**进一步阅读**
 
-* [Python docs - strings](https://docs.python.org/3/tutorial/introduction.html#strings)
-* [Python docs - f-strings](https://docs.python.org/3/reference/lexical_analysis.html#f-strings) - for more examples and caveats
-* [Python docs - List of Escape Sequences and more info on strings](https://docs.python.org/3/reference/lexical_analysis.html#strings)
-* [Python docs - Binary Sequence Types](https://docs.python.org/3/library/stdtypes.html#binary-sequence-types-bytes-bytearray-memoryview)
-* [formatting triple quoted strings](https://stackoverflow.com/questions/3877623/in-python-can-you-have-variables-within-triple-quotes-if-so-how)
+* [Python文档 - 字符串](https://docs.python.org/3/tutorial/introduction.html#strings)
+* [Python文档 - f-strings](https://docs.python.org/3/reference/lexical_analysis.html#f-strings) - 获取更多例子和告诫
+* [Python文档 - 转义序列列表和字符串更多信息](https://docs.python.org/3/reference/lexical_analysis.html#strings)
+* [Python文档 - Binary序列类型](https://docs.python.org/3/library/stdtypes.html#binary-sequence-types-bytes-bytearray-memoryview)
+* [三引号字符串格式化](https://stackoverflow.com/questions/3877623/in-python-can-you-have-variables-within-triple-quotes-if-so-how)
 
 <br>
 
-### <a name="constants"></a>Constants
+### <a name="constants"></a>常量
 
-Paraphrased from [Python docs - constants](https://docs.python.org/3/library/constants.html)
+来自[Python文档 - 常量](https://docs.python.org/3/library/constants.html)的释义
 
-* `None` The sole value of the type `NoneType`
-    * `None` is frequently used to represent the absence of a value
-* `False` The false value of the `bool` type
-* `True` The true value of the `bool` type
-* [Python docs - Truth Value Testing](https://docs.python.org/3/library/stdtypes.html#truth)
+* `None`是`NoneType`类型的唯一值
+    * `None` 常用于数值的确实
+* `False`是`bool`类型的“错误”值
+* `True` 是`bool`类型的“正确”值
+* [Python文档 - 真值检验](https://docs.python.org/3/library/stdtypes.html#truth)
 
 ```python
 >>> bool(2)
@@ -253,41 +253,40 @@ True
 
 <br>
 
-### <a name="built-in-operators"></a>Built-in Operators
+### <a name="built-in-operators"></a>内置操作符
 
-* arithmetic operators
-    * `+` addition
-    * `-` subtraction
-    * `*` multiplication
-    * `/` division (float output)
-    * `//` division (integer output, result is not rounded)
-    * `**` exponentiation
-    * `%` modulo
-* string operators
-    * `+` string concatenation
-    * `*` string repetition
-* comparison operators
-    * `==` equal to
-    * `>` greater than
-    * `<` less than
-    * `!=` not equal to
-    * `>=` greater than or equal to
-    * `<=` less than or equal to
-* boolean logic
-    * `and` logical and
-    * `or` logical or
-    * `not` logical not
-* bitwise operators
-    * `&` and
-    * `|` or
-    * `^` exclusive or
-    * `~` invert bits
-    * `>>` right shift
-    * `<<` left shift
-* and many more...
+* 算术操作符
+    * `+` 加
+    * `-` 减
+    * `*` 乘
+    * `/` 除（浮点输出）
+    * `//` 整除（整数输出，结果没有取舍）
+    * `**` 幂
+    * `%` 取模
+* 字符串操作符
+    * `+` 字符串粘连
+    * `*` 字符串重复
+* 比较操作符
+    * `==` 等于
+    * `>` 大于
+    * `<` 小于
+    * `!=` 不等于
+    * `>=` 大于或等于
+    * `<=` 小于或等于
+* 布尔逻辑操作
+    * `and` 逻辑与
+    * `or` 逻辑或
+    * `not` 逻辑非
+* 位操作符
+    * `&` 与
+    * `|` 或
+    * `^` 异或
+    * `~` 位反转
+    * `>>` 右移
+    * `<<` 左移
+* 还有更多...
 
-**Further Reading**
+**进一步阅读**
 
-* [Python docs - Numeric types](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex) - complete list of operations and precedence
-* [Python docs - String methods](https://docs.python.org/3/library/stdtypes.html#string-methods)
-
+* [Python文档 - 数值类型](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex) - complete list of operations and precedence
+* [Python文档 - 字符串方法](https://docs.python.org/3/library/stdtypes.html#string-methods)
