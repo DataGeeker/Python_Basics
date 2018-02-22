@@ -27,7 +27,7 @@ Python介绍 - 语法、与shell命令工作、文件、文本处理等等...
 * [控制结构](./Control_structures.md)
     * 条件检查, if, for, while, continue and break
 * [列表](./Lists.md)
-    * 列表变量赋值、切片和修改列表、复制列表、列表方法和杂项、循环、列表推导式、获取列表作为用户输入、从列表中获取随机项
+    * 列表变量赋值、切片和修改列表、复制列表、列表方法和杂项、循环、列表推导式、获取列表作为用户输入、随机从列表中获取元素
 * [序列、集合以及字典数据类型](./Sequence_Set_Dict_data_types.md)
     * 字符串、元组、集合、字典
 * [文本处理](./Text_Processing.md)

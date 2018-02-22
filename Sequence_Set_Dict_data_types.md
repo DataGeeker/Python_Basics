@@ -1,11 +1,11 @@
-# <a name="sequence-data-types"></a>Sequence, Set and Dict data types
+# <a name="sequence-data-types"></a>序列、集合以及字典数据类型
 
-* [Strings](#strings)
-* [Tuples](#tuples)
-* [Set](#set)
-* [Dictionary](#dictionary)
+* [字符串](#strings)
+* [元组](#tuples)
+* [集合](#set)
+* [字典](#dictionary)
 
-We have already seen Sequence types in previous chapters - strings, ranges and lists. Tuple is another sequence type  
+We have already seen Sequence types in previous chapters - strings, ranges and lists. Tuple is another sequence type
 We'll see some more operations on strings followed by Tuple, Set and Dict in this chapter
 
 <br>
@@ -57,7 +57,7 @@ IndexError: string index out of range
 
 >>> for char in book:
 ...     print(char)
-... 
+...
 A
 l
 c
@@ -144,7 +144,7 @@ True
 
 >>> for dish in north_dishes:
 ...     print(dish)
-... 
+...
 Aloo tikki
 Baati
 Khichdi
@@ -175,7 +175,7 @@ Poha
 
 >>> def min_max(arr):
 ...     return min(arr), max(arr)
-... 
+...
 >>> min_max([23, 53, 1, -34, 9])
 (-34, 53)
 ```
@@ -287,7 +287,7 @@ True
 
 >>> for n in nums:
 ...     print(n)
-... 
+...
 1
 2
 3
@@ -330,14 +330,14 @@ dict_values(['The Da Vinci Code', 'Harry Potter', 'Sherlock Holmes'])
 ```python
 >>> for book in fav_books.values():
 ...     print(book)
-... 
+...
 The Da Vinci Code
 Harry Potter
 Sherlock Holmes
 
 >>> for name, mark in marks.items():
 ...     print(name, mark, sep=': ')
-... 
+...
 Ravi: 92
 Rohit: 75
 Rahul: 86
