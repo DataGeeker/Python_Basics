@@ -1,16 +1,16 @@
-# <a name="control-structures"></a>Control Structures
+# <a name="control-structures"></a>控制结构
 
-* [Condition checking](#condition-checking)
+* [条件检查](#condition-checking)
 * [if](#if)
 * [for](#for)
 * [while](#while)
-* [continue and break](#continue-and-break)
+* [continue和break](#continue-and-break)
 
 <br>
 
-### <a name="condition-checking"></a>Condition checking
+### <a name="condition-checking"></a>条件检查
 
-* simple and combination of tests
+* 单个和组合测试
 
 ```python
 >>> num = 5
@@ -31,7 +31,7 @@ False
 True
 ```
 
-* Testing variable or value by themselves
+* 测试变量和值本身
 
 ```python
 >>> bool(num)
@@ -49,13 +49,13 @@ False
 
 >>> if -1:
 ...     print("-1 evaluates to True in condition checking")
-... 
+...
 -1 evaluates to True in condition checking
 ```
 
-* The use of `in` operator in condition checking
+* 条件测试中`in`操作符的使用
 
-Compare this way of checking
+对比这种检查方式
 
 ```python
 >>> def num_chk(n):
@@ -63,14 +63,14 @@ Compare this way of checking
 ...         print("Number passes condition")
 ...     else:
 ...         print("Number fails condition")
-... 
+...
 >>> num_chk(10)
 Number passes condition
 >>> num_chk(12)
 Number fails condition
 ```
 
-vs this one
+和另一种
 
 ```python
 >>> def num_chk(n):
@@ -78,15 +78,15 @@ vs this one
 ...         print("Number passes condition")
 ...     else:
 ...         print("Number fails condition")
-... 
+...
 >>> num_chk(12)
 Number fails condition
 >>> num_chk(10)
 Number passes condition
 ```
 
-* `(10, 21, 33)` is a tuple data type, will be covered in later chapters
-* [Python docs - Truth Value Testing](https://docs.python.org/3/library/stdtypes.html#truth)
+* `(10, 21, 33)`是一个元组数据类型，会在后面的章节讲解
+* [Python文档 - 真值检验](https://docs.python.org/3/library/stdtypes.html#truth)
 
 <br>
 
@@ -97,7 +97,7 @@ Number passes condition
 
 num = 45
 
-# only if
+# 单个if
 if num > 25:
     print("Hurray! {} is greater than 25".format(num))
 
@@ -108,7 +108,7 @@ else:
     print("{} is an odd number".format(num))
 
 # if-elif-else
-# any number of elif can be used
+# 可以使用任意数目的elif
 if num < 0:
     print("{} is a negative number".format(num))
 elif num > 0:
@@ -117,21 +117,21 @@ else:
     print("{} is neither postive nor a negative number".format(num))
 ```
 
-* Block of code for functions, control structures, etc are distinguished by indented code
-    * 4-space indentation is recommended
-    * [Python docs - Coding Style](https://docs.python.org/3/tutorial/controlflow.html#intermezzo-coding-style)
-* A common syntax error is leaving out `:` at end of control structure statements
-* Using `()` around conditions is optional
-* indented block can have any number of statements, including blank lines
+* 函数代码块、控制结构等等都是通过缩进区分
+    * 推荐使用4个空格缩进
+    * [Python文档 - 编码风格](https://docs.python.org/3/tutorial/controlflow.html#intermezzo-coding-style)
+* 一个常见的语法错误是忘记了控制结构语句后的`:`
+* 条件周围的`()`是可选的
+* 缩进代码块可以有任意数目的语句，包括空行
 
 ```
-$ ./if_elif_else.py 
+$ ./if_elif_else.py
 Hurray! 45 is greater than 25
 45 is an odd number
 45 is a positive number
 ```
 
-**if-else** as conditional operator
+**if-else**作为条件操作符
 
 ```python
 #!/usr/bin/python3
@@ -142,12 +142,12 @@ num_type = 'even' if num % 2 == 0 else 'odd'
 print("{} is an {} number".format(num, num_type))
 ```
 
-* Python doesn't have `?:` conditional operator like many other languages
-* Using `if-else` in single line like in this example is one workaround
-* [More ways of simulating ternary conditional operator](http://stackoverflow.com/questions/394809/does-python-have-a-ternary-conditional-operator)
+* 不像其他许多语言，Python没有`?:`条件操作符
+* 单行`if-else`的使用是一种变通方法
+* [模拟三元操作符的更多方法](http://stackoverflow.com/questions/394809/does-python-have-a-ternary-conditional-operator)
 
 ```
-$ ./if_else_oneliner.py 
+$ ./if_else_oneliner.py
 42 is an even number
 ```
 
@@ -164,13 +164,13 @@ for i in range(1, 5):
     print("{} * {} = {}".format(number, i, mul_table))
 ```
 
-* traditional iteration based loop can be written using `range` function
-    * recall that by default `start=0`, `step=1` and `stop` value is not inclusive
-* iterating over variables like list, tuples, etc will be covered in later chapters
-* [Python docs - itertools](https://docs.python.org/3/library/itertools.html)
+* 传统基于循环的迭代可以通过使用`range`函数实现
+    * 默认参数`start=0`、`step=1`，不含`stop`值
+* 针对列表、元组等等变量的迭代会在后续章节讲述
+* [Python文档 - 迭代工具](https://docs.python.org/3/library/itertools.html)
 
 ```
-$ ./for_loop.py 
+$ ./for_loop.py
 9 * 1 = 9
 9 * 2 = 18
 9 * 3 = 27
@@ -184,30 +184,30 @@ $ ./for_loop.py
 ```python
 #!/usr/bin/python3
 
-# continuously ask user input till it is a positive integer
+# 持续地询问直到用户输入一个正整数
 usr_string = 'not a number'
 while not usr_string.isnumeric():
     usr_string = input("Enter a positive integer: ")
 ```
 
-* while loop allows us to execute block of statements until a condition is satisfied
-* [Python docs - string methods](https://docs.python.org/3/library/stdtypes.html#string-methods)
+* while循环允许我们直到某个条件被满足之前不断执行语句块
+* [Python docs - 字符串方法](https://docs.python.org/3/library/stdtypes.html#string-methods)
 
 ```
-$ ./while_loop.py 
+$ ./while_loop.py
 Enter a positive integer: abc
 Enter a positive integer: 1.2
 Enter a positive integer: 23
-$ 
+$
 ```
 
 <br>
 
-### <a name="continue-and-break"></a>continue and break
+### <a name="continue-and-break"></a>continue和break
 
-The `continue` and `break` keywords are used to change the normal flow of loops on certain conditions
+`continue`和`break`关键字用于在某些条件下改变正常的循环操作
 
-**continue** - skip rest of statements in the loop and start next iteration
+**continue** - 跳过循环代码块余下的语句并进入下一次迭代
 
 ```python
 #!/usr/bin/python3
@@ -230,15 +230,15 @@ for num in range(10):
 print("")
 ```
 
-* `continue` can be placed anywhere in a loop block without having to worry about complicated code flow
-* this example is just to show use of `continue`, check [this](https://docs.python.org/3/tutorial/controlflow.html#defining-functions) for a more Pythonic way
+* `continue`放置在循环代码块中的任意位置而不用担心复杂的代码流
+* 这个例子仅仅展示`continue`的使用，查看[这里](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)获取更加Python化的操作方式
 
 ```
-$ ./loop_with_continue.py 
+$ ./loop_with_continue.py
 The first ten numbers in fibonacci sequence: 0 1 1 2 3 5 8 13 21 34
 ```
 
-**break** - skip rest of statements in the loop (if any) and exit loop
+**break** - 跳过循环代码块余下的语句（如果有）并进入退出循环代码块
 
 ```python
 #!/usr/bin/python3
@@ -246,39 +246,39 @@ The first ten numbers in fibonacci sequence: 0 1 1 2 3 5 8 13 21 34
 import random
 
 while True:
-    # as with range() function, 500 is not inclusive
+    # 使用range函数注意500没有包含在内
     random_int = random.randrange(500)
     if random_int % 4 == 0 and random_int % 6 == 0:
         break
 print("Random number divisible by 4 and 6: {}".format(random_int))
 ```
 
-* `while True:` is generally used as infinite loop
-* **randrange** has similar `start, stop, step` arguments as [range](./Functions.md#range-function)
-* [Python docs - random](https://docs.python.org/3/library/random.html)
+* `while True:`是常用作无限循环
+* **randrange**和[range](./Functions.md#range-function)函数相似，有`start, stop, step`参数
+* [Python文档 - random](https://docs.python.org/3/library/random.html)
 
 ```
-$ ./loop_with_break.py 
+$ ./loop_with_break.py
 Random number divisible by 4 and 6: 168
-$ ./loop_with_break.py 
+$ ./loop_with_break.py
 Random number divisible by 4 and 6: 216
-$ ./loop_with_break.py 
+$ ./loop_with_break.py
 Random number divisible by 4 and 6: 24
 ```
 
-The while_loop.py example can be re-written using `break`
+这个while_loop.py例子可以用`break`语句重写
 
 ```python
 >>> while True:
          usr_string = input("Enter a positive integer: ")
          if usr_string.isnumeric():
              break
-    
+
 Enter a positive integer: a
 Enter a positive integer: 3.14
 Enter a positive integer: 1
 >>>
 ```
 
-* in case of nested loops, `continue` and `break` only affect the immediate parent loop
-* [Python docs - else clauses on loops](https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops)
+* 在嵌套循环中，`continue`和`break`仅影响中间**一层**对应的循环
+* [Python文档 - 循环中的else从句](https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops)
