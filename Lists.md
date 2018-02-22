@@ -1,19 +1,19 @@
-# <a name="lists"></a>Lists
+# <a name="lists"></a>列表
 
-* [Assigning List variables](#assigning-list-variables)
-* [Slicing and Modifying Lists](#slicing-and-modifying-lists)
-* [Copying Lists](#copying-lists)
-* [List Methods and Miscellaneous](#list-methods-and-miscellaneous)
-* [Looping](#looping)
-* [List Comprehension](#list-comprehension)
-* [Getting List as user input](#list-user-input)
-* [Getting random items from list](#getting-random-items-from-list)
+* [列表变量赋值](#assigning-list-variables)
+* [列表切片和修改](#slicing-and-modifying-lists)
+* [列表拷贝](#copying-lists)
+* [列表方法和混杂](#list-methods-and-miscellaneous)
+* [循环](#looping)
+* [列表推导式](#list-comprehension)
+* [获取列表作为用户输入](#list-user-input)
+* [从列表中获取随机项](#getting-random-items-from-list)
 
 <br>
 
-### <a name="assigning-list-variables"></a>Assigning List variables
+### <a name="assigning-list-variables"></a>列表变量赋值
 
-* Simple lists and retrieving list elements
+* 简单列表和提取列表元素
 
 ```python
 >>> vowels = ['a', 'e', 'i', 'o', 'u']
@@ -41,7 +41,7 @@ Traceback (most recent call last):
 IndexError: list index out of range
 ```
 
-* Mix of data types and multi-dimensional lists
+* 数据类型混合和多维列表
 
 ```python
 >>> student = ['learnbyexample', 2016, 'Linux, Vim, Python']
@@ -55,14 +55,14 @@ IndexError: list index out of range
 1.2
 ```
 
-* [Python docs - lists](https://docs.python.org/3/tutorial/introduction.html#lists)
+* [Python文档 - 列表](https://docs.python.org/3/tutorial/introduction.html#lists)
 
 <br>
 
-### <a name="slicing-and-modifying-lists"></a>Slicing and Modifying Lists
+### <a name="slicing-and-modifying-lists"></a>列表切片和修改
 
-* Like the `range()` function, list index has `start:stop:step` format, `stop` value being non-inclusive
-* [stackoverflow - explain slice notation](https://stackoverflow.com/questions/509211/explain-pythons-slice-notation)
+* 类似`range()`函数，列表索引也是`start:stop:step`， `stop`值不被包含在内
+* [stackoverflow - 解释切片符号](https://stackoverflow.com/questions/509211/explain-pythons-slice-notation)
 
 ```python
 >>> books = ['Harry Potter', 'Sherlock Holmes', 'To Kill a Mocking Bird']
@@ -80,7 +80,7 @@ IndexError: list index out of range
 
 >>> prime[-1]
 11
->>> prime[-1:]
+>>> prime[-1:] # 注意和上一个操作的不同
 [11]
 >>> prime[-2:]
 [7, 11]
@@ -98,8 +98,8 @@ IndexError: list index out of range
 [2, 3, 5, 7, 11]
 ```
 
-* when `start` and `stop` values are same
-* Useful when they are generated programmatically, see [text processing exercise](./Exercises.md#text-processing) for example
+* `start`和`stop`值相同在被程序自动生成时很有用
+*  查看[文本处理练习](./Exercises.md#text-processing)的例子
 
 ```bash
 >>> nums = [1.2, -0.2, 0, 2]
@@ -113,7 +113,7 @@ IndexError: list index out of range
 []
 ```
 
-* The indexing format can be used to extract from list variable or modify itself
+* 这种索引格式可以用于抽取列表元素或者修改列表本身
 
 ```python
 >>> nums = [1.2, -0.2, 0, 2]
@@ -132,7 +132,7 @@ IndexError: list index out of range
 [2, 5, 4, 1]
 ```
 
-* helps to modify a list without changing `id`, which is useful if the variable name is referenced elsewhere (see next section)
+* 可以不改变`id`就修改一个列表，如果变量名在别处使用那么这个操作会非常有用
 
 ```python
 >>> id(nums)
@@ -143,20 +143,21 @@ IndexError: list index out of range
 >>> id(nums)
 140598790579336
 
-# assignment without using [:] will change id
+# 不使用索引[:]则会改变id
 >>> nums = [1.2, -0.2, 0, 2]
 >>> id(nums)
 140598782943752
+# 译者注：这应当是另外分配了一个新的地址和变量，然后对当前存在的进行了覆盖
 ```
 
 <br>
 
-### <a name="copying-lists"></a>Copying Lists
+### <a name="copying-lists"></a>列表拷贝
 
-* Variables in Python contain reference to objects
-* For example, when an integer variable is modified, the variable's reference is updated with new object
-* the [id()](https://docs.python.org/3/library/functions.html#id) function returns the "identity" of an object
-* For variables referring to immutable types like integer and strings, this distinction usually doesn't cause confusion in their usage
+* Python中的变量包含对象的引用
+* 例如，当一个整数变量修改后，变量的引用通过一个新的对象进行更新
+* [id()](https://docs.python.org/3/library/functions.html#id)函数返回一个对象的“唯一标识符”
+* 对于变量指向不可变的类型（如整型和字符串），这种区分通过不会对它们的使用造成困扰
 
 ```python
 >>> a = 5
@@ -178,8 +179,9 @@ IndexError: list index out of range
 10105920
 ```
 
-* But for variables referring to mutable types like lists, it is important to know how variables are copied and passed to functions
-* When an element of list variable is modified, it does so by changing the value (mutation) of object at that index
+* 但是对于指向可变类型（比如列表）的变量，知道变量是如何拷贝和传入函数是非常重要的
+* 当列表中的一个元素被修改，它是通过改变对象那个索引的值实现的
+
 
 ```python
 >>> a = [1, 2, 5, 4.3]
@@ -199,7 +201,7 @@ IndexError: list index out of range
 ['xyz', 2, 5, 4.3]
 ```
 
-* avoid copying lists using indexing format, it works for 1D lists but not for higher dimensions
+* 避免通过索引的方式拷贝列表，它对1维列表起作用，但不适用于更高维度
 
 ```python
 >>> prime = [2, 3, 5, 7, 11]
@@ -229,7 +231,7 @@ IndexError: list index out of range
 [['a', 3, 2, 10], [1.2, -0.2, 0, 2]]
 ```
 
-* use the [copy](https://docs.python.org/3/library/copy.html#module-copy) module instead
+* 使用[copy](https://docs.python.org/3/library/copy.html#module-copy)模块替换
 
 ```python
 >>> import copy
@@ -244,9 +246,9 @@ IndexError: list index out of range
 
 <br>
 
-### <a name="list-methods-and-miscellaneous"></a>List Methods and Miscellaneous
+### <a name="list-methods-and-miscellaneous"></a>列表方法和混杂
 
-* adding elements to list
+* 添加元素到列表
 
 ```python
 >>> books = []
@@ -273,7 +275,7 @@ IndexError: list index out of range
 [[1, 3], [2, 4], [5, 6]]
 ```
 
-* deleting elements from a list - based on index
+* 从列表中删除元素 - 基于索引
 
 ```python
 >>> prime = [2, 3, 5, 7, 11]
@@ -298,14 +300,14 @@ IndexError: list index out of range
 [[3, 2, 10]]
 ```
 
-* using [del](https://docs.python.org/3/reference/simple_stmts.html#del) to delete elements
+* 使用[del](https://docs.python.org/3/reference/simple_stmts.html#del)删除元素
 
 ```python
 >>> nums = [1.2, -0.2, 0, 2, 4, 23]
 >>> del nums[1]
 >>> nums
 [1.2, 0, 2, 4, 23]
-# can use slicing notation as well
+# 也可以使用切片
 >>> del nums[1:4]
 >>> nums
 [1.2, 23]
@@ -320,7 +322,7 @@ IndexError: list index out of range
 [[1.2, -0.2, 0, 2]]
 ```
 
-* clearing list
+* 清洗列表
 
 ```python
 >>> prime = [2, 3, 5, 7, 11]
@@ -329,8 +331,8 @@ IndexError: list index out of range
 []
 ```
 
-* deleting elements from a list - based on value
- 
+* 从列表中删除元素 - 基于值
+
 ```python
 >>> even_numbers = [2, 4, 6, 8, 10]
 >>> even_numbers.remove(8)
@@ -342,7 +344,7 @@ Traceback (most recent call last):
 ValueError: list.remove(x): x not in list
 ```
 
-* inserting elements at a particular index
+* 在特定的索引位置插入元素
 
 ```python
 >>> books = ['Harry Potter', 'Sherlock Holmes', 'To Kill a Mocking Bird']
@@ -351,7 +353,7 @@ ValueError: list.remove(x): x not in list
 ['Harry Potter', 'Sherlock Holmes', 'The Martian', 'To Kill a Mocking Bird']
 ```
 
-* get index of an element
+* 获取元素的索引
 
 ```python
 >>> even_numbers = [2, 4, 6, 8, 10]
@@ -363,7 +365,7 @@ Traceback (most recent call last):
 ValueError: 12 is not in list
 ```
 
-* checking if an element is present
+* 查看元素是否存在
 
 ```python
 >>> prime = [2, 3, 5, 7, 11]
@@ -373,7 +375,7 @@ True
 False
 ```
 
-* [sorting](https://docs.python.org/3/library/stdtypes.html#list.sort)
+* [排序](https://docs.python.org/3/library/stdtypes.html#list.sort)
 
 ```python
 >>> a = [1, 5.3, 321, 0, 1, 2]
@@ -387,8 +389,8 @@ False
 [321, 5.3, 2, 1, 1, 0]
 ```
 
-Sort [based on key](https://docs.python.org/3/howto/sorting.html#sortinghowto), for example based on string length  
-[lambda expressions](https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions) are helpful to pass custom single expression, say sort based on second letter
+[基于键key](https://docs.python.org/3/howto/sorting.html#sortinghowto)进行排序，例如基于字符串长度
+[lambda表达式](https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions)在比如传递自定义单个表达式、基于第二个字母进行排序中很有用
 
 ```python
 >>> words = ['fuliginous', 'crusado', 'morello', 'irk', 'seam']
@@ -401,7 +403,7 @@ Sort [based on key](https://docs.python.org/3/howto/sorting.html#sortinghowto), 
 ['seam', 'morello', 'irk', 'crusado', 'fuliginous']
 ```
 
-If original list should not be changed, use [sorted](https://docs.python.org/3/library/functions.html#sorted) function
+如果不想要改变原始列表，使用[sorted](https://docs.python.org/3/library/functions.html#sorted)函数
 
 ```python
 >>> nums = [-1, 34, 0.2, -4, 309]
@@ -413,7 +415,7 @@ If original list should not be changed, use [sorted](https://docs.python.org/3/l
 [0.2, -1, -4, 34, 309]
 ```
 
-* `min` and `max`
+* `min`和`max`
 
 ```python
 >>> a = [321, 899.232, 5.3, 2, 1, -1]
@@ -423,7 +425,7 @@ If original list should not be changed, use [sorted](https://docs.python.org/3/l
 899.232
 ```
 
-* Number of times an item is present
+* 元素存在的次数（数目）
 
 ```python
 >>> nums = [15, 99, 19, 382, 43, 19]
@@ -435,7 +437,7 @@ If original list should not be changed, use [sorted](https://docs.python.org/3/l
 0
 ```
 
-* reverse list in place
+* 按位置翻转列表
 
 ```python
 >>> prime = [2, 3, 5, 7, 11]
@@ -457,7 +459,7 @@ If original list should not be changed, use [sorted](https://docs.python.org/3/l
 140684818102664
 ```
 
-* [len](https://docs.python.org/3/library/functions.html#len) function to get size of lists
+* [len](https://docs.python.org/3/library/functions.html#len)函数获取列表的大小
 
 ```python
 >>> prime
@@ -472,7 +474,7 @@ If original list should not be changed, use [sorted](https://docs.python.org/3/l
 [5, 7, 11]
 ```
 
-* summing numeric lists
+* 数值列表求和
 
 ```python
 >>> a
@@ -481,7 +483,7 @@ If original list should not be changed, use [sorted](https://docs.python.org/3/l
 330.3
 ```
 
-* [all](https://docs.python.org/3/library/functions.html#all) and [any](https://docs.python.org/3/library/functions.html#any) functions
+* [all](https://docs.python.org/3/library/functions.html#all)和[any](https://docs.python.org/3/library/functions.html#any)函数
 
 ```python
 >>> conditions = [True, False, True]
@@ -501,7 +503,7 @@ False
 True
 ```
 
-* comparing lists
+* 比较列表
 
 ```python
 >>> prime
@@ -516,14 +518,14 @@ False
 True
 ```
 
-**Further Reading**
+**进一步阅读**
 
-* [Python docs - more on lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
-* [Python docs - collections](https://docs.python.org/3/library/collections.html)
+* [Python文档 - 列表详情](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
+* [Python文档 - 集合](https://docs.python.org/3/library/collections.html)
 
 <br>
 
-### <a name="looping"></a>Looping
+### <a name="looping"></a>循环
 
 ```python
 #!/usr/bin/python3
@@ -540,16 +542,16 @@ print("odd_numbers:  {}".format(odd_numbers))
 print("even_numbers: {}".format(even_numbers))
 ```
 
-* usually, it is enough to deal with every element of list without needing index of elements
+* 基本上不需要元素索引也足以处理列表的每一个元素
 
 ```
-$ ./list_looping.py 
+$ ./list_looping.py
 numbers:      [2, 12, 3, 25, 624, 21, 5, 9, 12]
 odd_numbers:  [3, 25, 21, 5, 9]
 even_numbers: [2, 12, 624, 12]
 ```
 
-* use `enumerate()` if both index and element is needed
+* 如果同时需要索引和元素，使用`enumerate()`函数
 
 ```python
 #!/usr/bin/python3
@@ -561,8 +563,8 @@ for idx, item in enumerate(north_dishes):
     print("{}. {}".format(idx + 1, item))
 ```
 
-* In this case, we get a [tuple](./Sequence_Set_Dict_data_types.md#tuples) every iteration consisting of a count (default value 0) and an item from the list
-* [Python docs - enumerate](https://docs.python.org/3/library/functions.html#enumerate)
+* 在这个例子中，我们获取了包含每一次迭代元素和索引（从0开始）的[元组](./Sequence_Set_Dict_data_types.md#tuples)
+* [Python文档 - enumerate](https://docs.python.org/3/library/functions.html#enumerate)
 
 ```
 $ ./list_looping_enumeration.py
@@ -574,13 +576,13 @@ My favorite North Indian dishes:
 5. Poha
 ```
 
-* a start value can also be specified
+* 也可以指定一个start值
 
 ```python
 >>> north_dishes = ['Aloo tikki', 'Baati', 'Khichdi', 'Makki roti', 'Poha']
 >>> for idx, item in enumerate(north_dishes, start=1):
 ...     print(idx, item, sep='. ')
-... 
+...
 1. Aloo tikki
 2. Baati
 3. Khichdi
@@ -588,15 +590,15 @@ My favorite North Indian dishes:
 5. Poha
 ```
 
-* use `zip()` to iterate over two or more lists simultaneously
-* [Python docs - zip](https://docs.python.org/3/library/functions.html#zip)
+* 使用`zip()`同时迭代两者及以上的列表
+* [Python文档 - zip](https://docs.python.org/3/library/functions.html#zip)
 
 ```python
 >>> odd = [1, 3, 5]
 >>> even = [2, 4, 6]
 >>> for i, j in zip(odd, even):
 ...     print(i + j)
-... 
+...
 3
 7
 11
@@ -604,7 +606,7 @@ My favorite North Indian dishes:
 
 <br>
 
-### <a name="list-comprehension"></a>List Comprehension
+### <a name="list-comprehension"></a>列表推导式
 
 ```python
 #!/usr/bin/python3
@@ -614,20 +616,20 @@ import time
 numbers = list(range(1,100001))
 fl_square_numbers = []
 
-# reference time
+# 引用时间
 t0 = time.perf_counter()
 
-# ------------ for loop ------------
+# ------------ for 循环 ------------
 for num in numbers:
     fl_square_numbers.append(num * num)
 
-# reference time
+# 引用时间
 t1 = time.perf_counter()
 
-# ------- list comprehension -------
+# ------- 列表推导式 -------
 lc_square_numbers = [num * num for num in numbers]
 
-# performance results
+# 执行结果
 t2 = time.perf_counter()
 fl_time = t1 - t0
 lc_time = t2 - t1
@@ -759,7 +761,7 @@ Enter prime numbers separated by comma: 3,5,7
 [68, 203, 15, 757, 580]
 ```
 
-* Get random items from list without repetition by creating an iterable using [Python docs - iter](https://docs.python.org/3/library/functions.html#iter) function 
+* Get random items from list without repetition by creating an iterable using [Python docs - iter](https://docs.python.org/3/library/functions.html#iter) function
 * The difference from simply using shuffled list is that this avoids the need to maintain a separate index counter and automatic exception raised if it goes out of range
 
 ```python
@@ -772,7 +774,7 @@ Enter prime numbers separated by comma: 3,5,7
 1.2
 >>> for n in nums_iter:
 ...     print(n)
-... 
+...
 1
 3
 -12
