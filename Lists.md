@@ -7,7 +7,7 @@
 * [循环](#looping)
 * [列表推导式](#list-comprehension)
 * [获取列表作为用户输入](#list-user-input)
-* [从列表中获取随机项](#getting-random-items-from-list)
+* [从列表中获取随机元素](#getting-random-items-from-list)
 
 <br>
 
@@ -645,11 +645,11 @@ else:
     print("\nfl_square_numbers and lc_square_numbers are NOT equivalent")
 ```
 
-* List comprehensions is a Pythonic way for some of the common looping constructs
-* Usually is a more readable and time saving option than loops
-* In this example, not having to call `append()` method also saves lot of time in case of list comprehension
-* Time values in this example is indicative and not to be taken as absolute
-    * It usually varies even between two runs, let alone different machines
+* 列表推导式是一些通用循环结构的一种Python化方式
+* 通常比循环更易读和省时间
+* 这个例子中，在列表推导式中没有调用`append()`方法也能节省大量的时间
+* 这个例子中的时间值是相对的差值
+    * 一般用于比较两次运行语句的时间差异，与机器无关
 
 ```
 $ ./list_comprehension.py
@@ -660,22 +660,22 @@ Improvement:                  56.36%
 fl_square_numbers and lc_square_numbers are equivalent
 ```
 
-* conditional list comprehension
+* 条件列表推导式
 
 ```python
-# using if-else conditional in list comprehension
+# 使用在列表推导式中使用if-else条件语句
 numbers = [2, 12, 3, 25, 624, 21, 5, 9, 12]
 odd_numbers  = []
 even_numbers = []
 [odd_numbers.append(num) if(num % 2) else even_numbers.append(num) for num in numbers]
 
-# or a more simpler and readable approach
+#　或者一种更简单和易读的方式
 numbers = [2, 12, 3, 25, 624, 21, 5, 9, 12]
 odd_numbers  = [num for num in numbers if num % 2]
 even_numbers = [num for num in numbers if not num % 2]
 ```
 
-* zip example
+* zip示例
 
 ```python
 >>> p = [1, 3, 5]
@@ -686,27 +686,27 @@ even_numbers = [num for num in numbers if not num % 2]
 [3, 642, 265]
 ```
 
-use [generator expressions](https://docs.python.org/3/tutorial/classes.html#generator-expressions) if sequence needs to be passed onto another function
+如果序列需要传入另一个函数，使用[生成器表达式](https://docs.python.org/3/tutorial/classes.html#generator-expressions)
 
 ```python
 >>> sum(i*j for i,j in zip(p, q))
 910
 ```
 
-**Further Reading**
+**进一步阅读**
 
-For more examples, including nested loops, check these
+更多例子，包括嵌套循环，查看这些：
 
-* [Python docs - list comprehensions](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)
-* [Python List Comprehensions: Explained Visually](http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/)
-* [are list comprehensions and functional functions faster than for loops](http://stackoverflow.com/questions/22108488/are-list-comprehensions-and-functional-functions-faster-than-for-loops)
-* [Python docs - perf_counter](https://docs.python.org/3/library/time.html#time.perf_counter)
-    * [understanding perf_counter and process_time](http://stackoverflow.com/questions/25785243/understanding-time-perf-counter-and-time-process-time)
-* [Python docs - timeit](https://docs.python.org/3/library/timeit.html)
+* [Python文档 - 列表推导式](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)
+* [Python列表推导式：可视化解释](http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/)
+* [列表推导式和功能性函数比for循环快吗？](http://stackoverflow.com/questions/22108488/are-list-comprehensions-and-functional-functions-faster-than-for-loops)
+* [Python文档 - perf_counter](https://docs.python.org/3/library/time.html#time.perf_counter)
+    * [理解perf_counter和process_time](http://stackoverflow.com/questions/25785243/understanding-time-perf-counter-and-time-process-time)
+* [Python文档 - timeit](https://docs.python.org/3/library/timeit.html)
 
 <br>
 
-### <a name="list-user-input"></a>Getting List as user input
+### <a name="list-user-input"></a>获取列表作为用户输入
 
 ```python
 >>> b = input('Enter strings separated by space: ').split()
@@ -726,13 +726,13 @@ Enter prime numbers separated by comma: 3,5,7
 [3, 5, 7]
 ```
 
-* Since user input is all treated as string, need to process based on agreed delimiter and required data type
+* 因为用户输入都会被当做字符串，需要基于共同的分隔符和所需要的数据类型进行处理
 
 <br>
 
-### <a name="getting-random-items-from-list"></a>Getting random items from list
+### <a name="getting-random-items-from-list"></a>从列表中获取随机元素
 
-* Get a random item
+* 获取一个随机元素
 
 ```python
 >>> import random
@@ -743,7 +743,7 @@ Enter prime numbers separated by comma: 3,5,7
 4
 ```
 
-* Randomly re-arrange items of list
+* 随机重排列表元素
 
 ```python
 >>> random.shuffle(a)
@@ -751,7 +751,7 @@ Enter prime numbers separated by comma: 3,5,7
 [5, 2, 76, 4]
 ```
 
-* Get random slice of list, doesn't modify the list variable
+* 获取列表的随机切片，不修改列表变量
 
 ```python
 >>> random.sample(a, k=3)
@@ -761,8 +761,8 @@ Enter prime numbers separated by comma: 3,5,7
 [68, 203, 15, 757, 580]
 ```
 
-* Get random items from list without repetition by creating an iterable using [Python docs - iter](https://docs.python.org/3/library/functions.html#iter) function
-* The difference from simply using shuffled list is that this avoids the need to maintain a separate index counter and automatic exception raised if it goes out of range
+* 使用[Python文档 - iter](https://docs.python.org/3/library/functions.html#iter)创建一个迭代变量从列表中获取无重复的随机元素
+* 它与简单使用洗牌后的列表的区别在于，可以避免需要维护独立的索引计数器和当索引超界时自动引发的异常
 
 ```python
 >>> nums = [1, 3, 6, -12, 1.2, 3.14]
@@ -785,7 +785,7 @@ Traceback (most recent call last):
 StopIteration
 ```
 
-* [Python docs - random](https://docs.python.org/3/library/random.html) for more info
-  * new in version 3.6 - [random.choices](https://docs.python.org/3/library/random.html#random.choices)
-* [Python docs - next](https://docs.python.org/3/library/functions.html#next)
-* See also [yield](https://stackoverflow.com/questions/231767/what-is-the-function-of-the-yield-keyword)
+* [Python文档 - random](https://docs.python.org/3/library/random.html)获取更多信息
+  * 3.6版本更新 - [random.choices](https://docs.python.org/3/library/random.html#random.choices)
+* [Python文档 - next](https://docs.python.org/3/library/functions.html#next)
+* 另见[yield](https://stackoverflow.com/questions/231767/what-is-the-function-of-the-yield-keyword)
