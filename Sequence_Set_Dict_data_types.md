@@ -5,15 +5,14 @@
 * [集合](#set)
 * [字典](#dictionary)
 
-We have already seen Sequence types in previous chapters - strings, ranges and lists. Tuple is another sequence type
-We'll see some more operations on strings followed by Tuple, Set and Dict in this chapter
+我们在前面章节已经看到过字符串、区间、列表等序列类型。元组是另外一中序列类型。这一章我们学习更多关于字符串、元组、字典和集合的操作。
 
 <br>
 
-### <a name="strings"></a>Strings
+### <a name="strings"></a>字符串
 
-* The indexing we saw for lists can be applied to strings as well
-    * As strings are immutable, they can't be modified like lists though
+* 我们之前看到在列表中使用的索引也可以应用于字符串
+    * 因为字符串不可变长，它们不能像列表一样修改
 
 ```python
 >>> book = "Alchemist"
@@ -49,7 +48,7 @@ IndexError: string index out of range
 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 ```
 
-* looping over strings
+* 字符串循环操作
 
 ```python
 >>> book
@@ -69,7 +68,7 @@ s
 t
 ```
 
-* Other operations
+* 其他操作
 
 ```python
 >>> book
@@ -98,10 +97,10 @@ True
 
 <br>
 
-### <a name="tuples"></a>Tuples
+### <a name="tuples"></a>元组
 
-* Tuples are similar to lists but immutable and useful in other ways too
-* Individual elements can be both mutable/immutable
+* 元素跟列表相似，但是不可变长，在其他场景中很有用
+* 单一的元素可变长/不变长
 
 ```python
 >>> north_dishes = ('Aloo tikki', 'Baati', 'Khichdi', 'Makki roti', 'Poha')
@@ -126,7 +125,7 @@ Traceback (most recent call last):
 TypeError: 'tuple' object does not support item assignment
 ```
 
-* Example operations
+* 示例操作
 
 ```python
 >>> 'roti' in north_dishes
@@ -152,8 +151,8 @@ Makki roti
 Poha
 ```
 
-* Tuple is handy for multiple variable assignment and returning more than one value in functions
-    * We have already seen example when using `enumerate` for iterating over lists
+* 元组用于处理多个变量分配（赋值）和在函数中返回多个值
+    * 在使用`enumerate`用于迭代列表时我们已经看过例子了
 
 ```python
 >>> a = 5
@@ -180,7 +179,7 @@ Poha
 (-34, 53)
 ```
 
-* using `()` is not always required
+* 并不总需要使用`()`
 
 ```python
 >>> words = 'day', 'night'
@@ -197,8 +196,8 @@ Poha
 ((1, 2), (2, 3), (3, 5), (4, 7), (5, 11))
 ```
 
-* converting other types to tuples
-    * similar to `list()`
+* 将其他类型转换为元组
+    * 与`list()`相似
 
 ```
 >>> tuple('books')
@@ -209,7 +208,7 @@ Poha
 (321, 899.232, 5.3, 2, 1, -1)
 ```
 
-* data types can be mixed and matched in different ways
+* 数据类型可用多种方式混合和匹配
 
 ```python
 >>> a = [(1,2), ['a', 'b'], ('good', 'bad')]
@@ -221,16 +220,16 @@ Poha
 ((1, 2), ['a', 'b'], ('good', 'bad'))
 ```
 
-* [Python docs - tuple](https://docs.python.org/3/library/stdtypes.html#tuple)
-* [Python docs - tuple tutorial](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences)
+* [Python文档 - 元组](https://docs.python.org/3/library/stdtypes.html#tuple)
+* [Python文档 - 元组教程](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences)
 
 <br>
 
-### <a name="set"></a>Set
+### <a name="set"></a>集合
 
-* Set is unordered collection of objects
-* Mutable data type
-* Typically used to maintain unique sequence, perform Set operations like intersection, union, difference, symmetric difference, etc
+* 集合是无序的对象集
+* 可变数据类型
+* 通常用于保持唯一的序列、执行集合操作（像交、并、差等等）
 
 ```python
 >>> nums = {3, 2, 5, 7, 1, 6.3}
@@ -250,7 +249,7 @@ Poha
 {1, 6.3, 7}
 ```
 
-* Example operations
+* 示例操作
 
 ```python
 >>> len(nums)
@@ -296,15 +295,15 @@ True
 7
 ```
 
-* [Python docs - set](https://docs.python.org/3/library/stdtypes.html#set)
-* [Python docs - frozenset](https://docs.python.org/3/library/stdtypes.html#frozenset)
-* [set tutorial](http://www.programiz.com/python-programming/set)
+* [Python文档 - 集合](https://docs.python.org/3/library/stdtypes.html#set)
+* [Python文档 - frozenset](https://docs.python.org/3/library/stdtypes.html#frozenset)
+* [集合教程](http://www.programiz.com/python-programming/set)
 
 <br>
 
-### <a name="dictionary"></a>Dictionary
+### <a name="dictionary"></a>字典
 
-* `dict` types can be thought of as unordered list of `key:value` pairs or a named list of items
+* 字典类型被看作无序的键值对或有名字的元素列表
 
 ```python
 >>> marks = {'Rahul' : 86, 'Ravi' : 92, 'Rohit' : 75}
@@ -325,7 +324,7 @@ dict_keys(['Ravi', 'Rohit', 'Rahul'])
 dict_values(['The Da Vinci Code', 'Harry Potter', 'Sherlock Holmes'])
 ```
 
-* looping and printing
+* 循环和打印
 
 ```python
 >>> for book in fav_books.values():
@@ -350,7 +349,7 @@ Rahul: 86
     'thriller': 'The Da Vinci Code'}
 ```
 
-* modifying dicts and example operations
+* 修改字典和示例操作
 
 ```python
 >>> marks
@@ -374,9 +373,9 @@ True
 False
 ```
 
-* dict made up of lists and using random module
-* any change in the individual lists will also reflect in dict
-* output of `keys()` method has to be changed to Sequence types like `list` or `tuple` to pass on to `random.choice`
+* 字典由列表组成并使用随机模块
+* 任何对单个列表的改变会反映在字典中
+* `keys()`方法的输出必须改变为像`list`或者`tuple`这样的序列类型传入`random.choice`
 
 ```python
 >>> north = ['aloo tikki', 'baati', 'khichdi', 'makki roti', 'poha']
@@ -391,8 +390,8 @@ False
 Try the 'East' speciality 'rosgulla' today
 ```
 
-**Further Reading**
+**进一步阅读**
 
-* [Python docs - dict](https://docs.python.org/3/library/stdtypes.html#dict)
-* [Python docs - pprint](https://docs.python.org/3/library/pprint.html)
-* [detailed tutorial on dict](http://www.sharats.me/posts/the-python-dictionary/)
+* [Python文档 - 字典](https://docs.python.org/3/library/stdtypes.html#dict)
+* [Python文档 - pprint](https://docs.python.org/3/library/pprint.html)
+* [字典详细教程](http://www.sharats.me/posts/the-python-dictionary/)
