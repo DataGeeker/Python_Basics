@@ -1,21 +1,21 @@
-# <a name="text-processing"></a>Text Processing
+# <a name="text-processing"></a>文本处理
 
-* [String methods](#string-methods)
-* [Regular Expressions](#regular-expressions)
-* [Pattern matching and extraction](#pattern-matching-and-extraction)
-* [Search and Replace](#search-and-replace)
-* [Compiling Regular Expressions](#compiling-regular-expressions)
-* [Further Reading on Regular Expressions](#further-reading-on-regular-expressions)
+* [字符串方法](#string-methods)
+* [正则表达式](#regular-expressions)
+* [模式匹配和提取](#pattern-matching-and-extraction)
+* [搜索和替换](#search-and-replace)
+* [编译正则表达式](#compiling-regular-expressions)
+* [正则表达式进一步阅读](#further-reading-on-regular-expressions)
 
 <br>
 
-### <a name="string-methods"></a>String methods
+### <a name="string-methods"></a>字符串方法
 
-* translate string characters
-    * `str.maketrans()` to get translation table
-    * `translate()` to perform the string mapping based on translation table
-* the first argument to `maketrans()` is string characters to be replaced, the second is characters to replace with and the third is characters to be mapped to `None`
-* [character translation examples](https://stackoverflow.com/questions/555705/character-translation-using-python-like-the-tr-command)
+* 转换字符
+    * `str.maketrans()`获取转换表
+    * `translate()`基于转换表执行字符串映射
+* `maketrans()`第一个参数是被取代的字符，第二个参数是取代的字符，第三个是被映射为`None`的字符
+* [字符转换例子](https://stackoverflow.com/questions/555705/character-translation-using-python-like-the-tr-command)
 
 ```python
 >>> greeting = '===== Have a great day ====='
@@ -39,10 +39,11 @@
 ' Have a great day '
 ```
 
-* removing leading/trailing/both characters
-* only consecutive characters from start/end string are removed
-* by default whitespace characters are stripped
-* if more than one character is specified, it is treated as a set and all combinations of it are used
+* 移除首/尾/两者的字符串
+* 仅移除首/尾连续的字符
+* 默认空格会被除去
+* 如果指定了多个字符，它会被视为集合，并使用其中所有的组合
+
 
 ```python
 >>> greeting = '      Have a nice day :)     '
@@ -61,15 +62,15 @@
 ' Have a great day!! '
 ```
 
-* styling
-* width argument specifies total output string length
+* 风格化
+* width参数指定了总的输出字符串长度
 
 ```python
 >>> ' Hello World '.center(40, '*')
 '************* Hello World **************'
 ```
 
-* changing case and case checking
+* 改变大小写和大小写检查
 
 ```python
 >>> sentence = 'thIs iS a saMple StrIng'
@@ -96,7 +97,7 @@ True
 False
 ```
 
-* check if string is made up of numbers
+* 检查是否字符串由数值构成
 
 ```python
 >>> '1'.isnumeric()
@@ -107,7 +108,7 @@ False
 False
 ```
 
-* check if character sequence is present or not
+* 检查是否字符串序列是否存在
 
 ```python
 >>> sentence = 'This is a sample string'
@@ -125,7 +126,7 @@ True
 True
 ```
 
-* get number of times character sequence is present (non-overlapping)
+* 获取字符序列存在的次数（非覆盖）
 
 ```python
 >>> sentence = 'This is a sample string'
@@ -139,7 +140,7 @@ True
 1
 ```
 
-* matching character sequence at start/end of string
+* 匹配头尾字符序列
 
 ```python
 >>> sentence
@@ -156,9 +157,9 @@ True
 False
 ```
 
-* split string based on character sequence
-* returns a list
-* to split using regular expressions, use `re.split()` instead
+* 基于字符序列分割字符串
+* 返回列表
+* 要使用正则表达式分割，使用`re.split()`
 
 ```python
 >>> sentence = 'This is a sample string'
@@ -166,14 +167,14 @@ False
 >>> sentence.split()
 ['This', 'is', 'a', 'sample', 'string']
 
->>> "oranges:5".split(':') 
+>>> "oranges:5".split(':')
 ['oranges', '5']
->>> "oranges :: 5".split(' :: ') 
+>>> "oranges :: 5".split(' :: ')
 ['oranges', '5']
 
->>> "a e i o u".split(' ', maxsplit=1) 
+>>> "a e i o u".split(' ', maxsplit=1)
 ['a', 'e i o u']
->>> "a e i o u".split(' ', maxsplit=2) 
+>>> "a e i o u".split(' ', maxsplit=2)
 ['a', 'e', 'i o u']
 
 >>> line = '{1.0 2.0 3.0}'
@@ -182,7 +183,7 @@ False
 [1.0, 2.0, 3.0]
 ```
 
-* joining list of strings
+* 连接字符串列表
 
 ```python
 >>> str_list
@@ -197,9 +198,9 @@ False
 'This :: is :: a :: sample :: string'
 ```
 
-* replace characters
-* third argument specifies how many times replace has to be performed
-* variable has to be explicitly re-assigned to change its value
+* 替换字符
+* 第三个参数指定使用多少次的替换
+* 变量必须显式地重赋值
 
 ```python
 >>> phrase = '2 be or not 2 be'
@@ -217,81 +218,82 @@ False
 'to be or not to be'
 ```
 
-**Further Reading**
+**进一步阅读**
 
-* [Python docs - string methods](https://docs.python.org/3/library/stdtypes.html#string-methods)
-* [python string methods tutorial](http://www.thehelloworldprogram.com/python/python-string-methods/)
+* [Python文档 - 字符串方法](https://docs.python.org/3/library/stdtypes.html#string-methods)
+* [python字符串方法教程](http://www.thehelloworldprogram.com/python/python-string-methods/)
 
 <br>
 
-### <a name="regular-expressions"></a>Regular Expressions
+### <a name="regular-expressions"></a>正则表达式
 
-* Handy reference of regular expression elements
+* 正则表达式元素便利参考
 
-| Meta characters | Description |
+| 元字符 | 描述 |
 | ------------- | ----------- |
-| ^ | anchor, match from beginning of string |
-| $ | anchor, match end of string |
-| . | Match any character except newline character \n |
-| &#124; | OR operator for matching multiple patterns |
-| () | for grouping patterns and also extraction |
-| [] | Character class - match one character among many |
-| &#92;^ | use \ to match meta characters like ^ |
+| ^ | 锚定，匹配字符串行首 |
+| $ | 锚定，匹配字符串行尾 |
+| . | 匹配除换行符\n之外的字符 |
+| &#124; | 或操作符，用于匹配多个模式 |
+| () | 用于模式分组和提取 |
+| [] | 字符类 - 匹配多个字符中的一个 |
+| &#92;^ | 使用\ 匹配元字符 |
 
 <br>
 
-| Quantifiers | Description |
+| 量词 | 描述 |
 | ------------- | ----------- |
-| * | Match zero or more times the preceding character |
-| + | Match one or more times the preceding character |
-| ? | Match zero or one times the preceding character |
-| {n} | Match exactly n times |
-| {n,} | Match at least n times |
-| {n,m} | Match at least n times but not more than m times |
+| * | 匹配之前的字符0或多次|
+| + | 匹配之前的字符1或多次 |
+| ? | 匹配之前的字符0或1次 |
+| {n} | 匹配n次 |
+| {n,} | 匹配至少n次|
+| {n,m} | 匹配至少n次，至多m次|
 
 <br>
 
-| Character classes | Description |
+| 字符类 | 描述 |
 | ------------- | ----------- |
-| [aeiou] | Match any vowel |
-| \[^aeiou] | ^ inverts selection, so this matches any consonant |
-| [a-f] | Match any of abcdef character |
-| \d | Match a digit, same as [0-9] |
-| \D | Match non-digit, same as \[^0-9] or \[^\d] |
-| \w | Match alphanumeric and underscore character, same as [a-zA-Z_] |
-| \W | Match non-alphanumeric and underscore character, same as \[^a-zA-Z_] or \[^\w] |
-| \s | Match white-space character, same as [\ \t\n\r\f\v] |
-| \S | Match non white-space character, same as \[^\s] |
-| \b | word boundary, word defined as sequence of alphanumeric characters |
-| \B | not a word boundary |
+| [aeiou] | 匹配任何元音 |
+| \[^aeiou] | ^ 倒置选择，所以这会匹配任何的辅音|
+| [a-f] | 匹配abcdef中任意字符|
+| \d | 匹配数字，跟[0-9]一样|
+| \D | 匹配非数字，跟 \[^0-9] 或 \[^\d]一样 |
+| \w | 匹配字母和下划线，跟[a-zA-Z_]一样|
+| \W | 匹配非字母和非下划线字符，跟\[^a-zA-Z_] 或 \[^\w]一样 |
+| \s | 匹配空格符，跟[\ \t\n\r\f\v]一样 |
+| \S | 匹配非空行符，跟\[^\s]一样 |
+| \b | 单词边界，单词定义为字母序列 |
+| \B | 非单词边界 |
 
 <br>
 
-| Compilation Flags | Description |
+| 编译标记 | 描述 |
 | ------------- | ----------- |
-| re.I | ignore case |
-| re.M | multiline mode, ^ and $ anchors work on internal lines |
-| re.S | singleline mode, . will also match \n |
-| re.V | verbose mode, for better readability and adding comments |
+| re.I | 忽略大小写 |
+| re.M | 多行模式，^和$锚定符号可以处理中间行|
+| re.S | 单行模式，.也会匹配\n |
+| re.V | 冗余模式，提高可读性和添加注释 |
 
-* [Python docs - Compilation Flags](https://docs.python.org/3/howto/regex.html#compilation-flags) - for more details and long names for flags
+* [Python文档 - 标记](https://docs.python.org/3/howto/regex.html#compilation-flags) - 详情和标记长名
 
 <br>
 
-| Variable | Description |
+| 变量 | 描述 |
 | ------------- | ----------- |
-| \1, \2, \3 etc | backreferencing matched patterns |
-| \g<1>, \g<2>, \g<3> etc | backreferencing matched patterns, useful to differentiate numbers and backreferencing |
+| \1, \2, \3 等等 | 引用匹配的模式 |
+| \g<1>, \g<2>, \g<3> etc | 引用匹配的模式，用于区分数字和引用|
 
 <br>
 
-### <a name="pattern-matching-and-extraction"></a>Pattern matching and extraction
+### <a name="pattern-matching-and-extraction"></a>模式匹配和提取
 
-* matching/extracting sequence of characters
-* use `re.search()` to see if a string contains a pattern or not
-* use `re.findall()` to get a list of matching patterns
-* use `re.split()` to get a list from splitting a string based on a pattern
-* their syntax given below
+
+* 匹配/提取字符序列
+* 使用`re.search()`查看是否一个字符串包含某个模式
+* 使用`re.findall()`获得一个匹配模式列表
+* 使用`re.split()`获得一个基于模式分割字符串的列表
+* 它们的语法如下
 
 ```python
 re.search(pattern, string, flags=0)
@@ -322,8 +324,8 @@ True
 ['i', 'i', 'i']
 ```
 
-* using regular expressions
-* use the `r''` format when using regular expression elements
+* 使用正则表达式
+* 当使用正则表达式元素时用`r''`格式
 
 ```python
 >>> string
@@ -351,7 +353,7 @@ True
 ['Sample', '123', 'string', '54', 'with', '908', 'numbers']
 ```
 
-* backreferencing
+* 引用
 
 ```python
 >>> quote = "So many books, so little time"
@@ -368,16 +370,16 @@ True
 
 <br>
 
-### <a name="search-and-replace"></a>Search and Replace
+### <a name="search-and-replace"></a>搜索和替换
 
-**Syntax**
+**语法**
 
 ```python
 re.sub(pattern, repl, string, count=0, flags=0)
 ```
 
-* simple substitutions
-* `re.sub` will not change value of variable passed to it, has to be explicity assigned
+* 简单替换
+* `re.sub`不会改变传入变量的值，必须显式地指定
 
 ```python
 >>> sentence = 'This is a sample string'
@@ -400,7 +402,7 @@ re.sub(pattern, repl, string, count=0, flags=0)
 '===== Have a great day ====='
 ```
 
-* backreferencing
+* 引用
 
 ```python
 >>> words = 'night and day'
@@ -412,7 +414,7 @@ re.sub(pattern, repl, string, count=0, flags=0)
 'Can you spot the mistakes? I seem to not'
 ```
 
-* using functions in replace part of `re.sub()`
+* 在`re.sub()`替换部分使用函数
 
 ```python
 >>> import math
@@ -420,7 +422,7 @@ re.sub(pattern, repl, string, count=0, flags=0)
 
 >>> def fact_num(n):
 ...     return str(math.factorial(int(n.group(1))))
-... 
+...
 >>> re.sub(r'(\d+)', fact_num, numbers)
 '1 2 6 24 120'
 
@@ -428,13 +430,13 @@ re.sub(pattern, repl, string, count=0, flags=0)
 '1 2 6 24 120'
 ```
 
-* [call functions from re.sub](https://stackoverflow.com/questions/11944978/call-functions-from-re-sub)
-* [replace string pattern with output of function](https://stackoverflow.com/questions/12597370/python-replace-string-pattern-with-output-of-function)
-* [lambda tutorial](https://pythonconquerstheuniverse.wordpress.com/2011/08/29/lambda_tutorial/)
+* [从re.sub调用函数](https://stackoverflow.com/questions/11944978/call-functions-from-re-sub)
+* [用函数输出替换字符串模式](https://stackoverflow.com/questions/12597370/python-replace-string-pattern-with-output-of-function)
+* [lambda教程](https://pythonconquerstheuniverse.wordpress.com/2011/08/29/lambda_tutorial/)
 
 <br>
 
-### <a name="compiling-regular-expressions"></a>Compiling Regular Expressions
+### <a name="compiling-regular-expressions"></a>编译正则表达式
 
 ```python
 >>> swap_words = re.compile(r'(\w+)( \w+ )(\w+)')
@@ -469,16 +471,15 @@ True
 
 <br>
 
-### <a name="further-reading-on-regular-expressions"></a>Further Reading on Regular Expressions
+### <a name="further-reading-on-regular-expressions"></a>正则表达式进一步阅读
 
-* [Python docs - re module](https://docs.python.org/3/library/re.html)
-* [Python docs - introductory tutorial to using regular expressions](https://docs.python.org/3/howto/regex.html)
-* [developers.google - Regular Expressions tutorial](https://developers.google.com/edu/python/regular-expressions)
-* [automatetheboringstuff - Regular Expressions](https://automatetheboringstuff.com/chapter7/)
-* [Comprehensive reference: What does this regex mean?](https://stackoverflow.com/questions/22937618/reference-what-does-this-regex-mean)
-* Practice tools
-    * [online regex tester](https://regex101.com/#python) shows explanations, has reference guides and ability to save and share regex
-    * [regexone](http://regexone.com/) - interative tutorial
-	* [cheatsheet](https://www.shortcutfoo.com/app/dojos/python-regex/cheatsheet) - one can also learn it [interactively](https://www.shortcutfoo.com/app/dojos/python-regex)
-    * [regexcrossword](https://regexcrossword.com/) - practice by solving crosswords, read 'How to play' section before you start
-
+* [Python文档 - re模块](https://docs.python.org/3/library/re.html)
+* [Python文档 - 正则表达式使用介绍](https://docs.python.org/3/howto/regex.html)
+* [developers.google - 正则表达式教程](https://developers.google.com/edu/python/regular-expressions)
+* [automatetheboringstuff - 正则表达式](https://automatetheboringstuff.com/chapter7/)
+* [综合参考：regex是什么？](https://stackoverflow.com/questions/22937618/reference-what-does-this-regex-mean)
+* 练习工具
+    * [online regex tester](https://regex101.com/#python) 展示解释，提供参考指南和保存、分享regex
+    * [regexone](http://regexone.com/) - 交互式教程
+	* [cheatsheet](https://www.shortcutfoo.com/app/dojos/python-regex/cheatsheet) -  [交互式](https://www.shortcutfoo.com/app/dojos/python-regex)学习
+    * [regexcrossword](https://regexcrossword.com/) - 通过解答纵横游戏练习，开始之前阅读'How to play'部分
