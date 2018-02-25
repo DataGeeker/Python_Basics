@@ -1,13 +1,13 @@
-# <a name="command-line-arguments"></a>Command line arguments
+# <a name="command-line-arguments"></a>命令行念书
 
-* [Known number of arguments](#known-number-of-arguments)
-* [Varying number of arguments](#varying-number-of-arguments)
-* [Using program name in code](#using-program-name-in-code)
-* [Command line switches](#command-line-switches)
+* [已知参数数目](#known-number-of-arguments)
+* [变长参数](#varying-number-of-arguments)
+* [代码中使用程序名](#using-program-name-in-code)
+* [命令行开关](#command-line-switches)
 
 <br>
 
-### <a name="known-number-of-arguments"></a>Known number of arguments
+### <a name="known-number-of-arguments"></a>已知参数数目
 
 ```python
 #!/usr/bin/python3
@@ -22,10 +22,10 @@ else:
     print("{} + {} = {}".format(num1, num2, total))
 ```
 
-* Command line arguments given to Python program are automatically saved in `sys.argv` list
-* It is a good idea to let the user know something went wrong
-* As the program terminates with error message for wrong usage, use `sys.exit()` for error message (exit status 1) or a custom exit status number
-* [Python docs - sys module](https://docs.python.org/3/library/sys.html#module-sys)
+* 传入Python程序的命令行参数自动保存在`sys.argv`列表中
+* 让用户知道错误信息是非常好的想法
+* 当程序因为错误的使用而终止报错，使用`sys.exit()`获取错误信息或者一个自定义状态码
+* [Python文档 - sys模块](https://docs.python.org/3/library/sys.html#module-sys)
 
 ```
 $ ./sum_of_two_numbers.py 2 3
@@ -49,7 +49,7 @@ $ echo $?
 
 <br>
 
-### <a name="varying-number-of-arguments"></a>Varying number of arguments
+### <a name="varying-number-of-arguments"></a>变长参数
 
 ```python
 #!/usr/bin/python3
@@ -57,7 +57,7 @@ $ echo $?
 import sys, pathlib, subprocess
 
 if len(sys.argv) < 2:
-    sys.exit("Error: Please provide atleast one filename as argument")
+    sys.exit("Error: Please provide at least one filename as argument")
 
 input_files = sys.argv[1:]
 files_not_found = []
@@ -73,16 +73,16 @@ for filename in input_files:
 print("\n".join(files_not_found))
 ```
 
-* When dealing with filenames obtained as user input, it is good to do a sanity check before processing
-* [Python docs - pathlib](https://docs.python.org/3/library/pathlib.html)
+* 当处理的用户输入包含文件名时，最好在处理之前进行检查
+* [Python文档 - pathlib](https://docs.python.org/3/library/pathlib.html)
 
 ```
 $ ./varying_command_line_args.py
-Error: Please provide atleast one filename as argument
+Error: Please provide at least one filename as argument
 $ echo $?
 1
 
-$ #selective output presented
+$ #选择性呈现输出
 $ ./varying_command_line_args.py *.py
 calling_shell_commands.py               : 14   lines
 for_loop.py                             : 6    lines
@@ -101,7 +101,7 @@ File 'xyz.py' not found
 File 'abc.py' not found
 ```
 
-* use `os` module instead of `pathlib` for file checking if your Python version is not 3.4 and higher
+* 如果你的Python版本不是3.4或者更高，使用`os`模块而不是`pathlib`模块进行文件检查
 
 ```python
 import os
@@ -112,7 +112,7 @@ if not os.path.isfile(filename):
 
 <br>
 
-### <a name="using-program-name-in-code"></a>Using program name in code
+### <a name="using-program-name-in-code"></a>在代码中使用程序名
 
 ```python
 #!/usr/bin/python3
@@ -138,18 +138,18 @@ else:
     sys.exit("Program name '{}' not recognized".format(program_name))
 ```
 
-* Same program can be repurposed for different functionalities based on its name
+* 基于程序名，同一程序可以用作不同的目的
 
 ```
 $ ./line_count.py if_elif_else.py
 No. of lines in 'if_elif_else.py' is: 22
 
 $ ln -s line_count.py word_count.py
-$ ./word_count.py if_elif_else.py 
+$ ./word_count.py if_elif_else.py
 No. of words in 'if_elif_else.py' is: 73
 
 $ ln -s line_count.py abc.py
-$ ./abc.py if_elif_else.py 
+$ ./abc.py if_elif_else.py
 Program name './abc.py' not recognized
 
 $ wc -lw if_elif_else.py
@@ -158,7 +158,7 @@ $ wc -lw if_elif_else.py
 
 <br>
 
-### <a name="command-line-switches"></a>Command line switches
+### <a name="command-line-switches"></a>命令行开关
 
 ```python
 #!/usr/bin/python3
@@ -176,17 +176,17 @@ else:
     subprocess.call(['sort', args.file, '-o', args.file])
 ```
 
-* using `argparse` module is a simpler way to build programs that behave like shell commands
-* By default it adds a help option `-h` (short form) and `--help` (long form) as well as handles wrong usage
+* 使用`argparse`模块是一种更简单的方式使得构建的程序像shell命令
+* 默认它添加一个help选项`-h`（短格式）和`--help`选项（长格式）处理错误的使用
 
-In this example:
+在这个例子中：
 
-* `-f` or `--file` option is declared as required option, it accepts an argument (which we treat as input file name in code)
-* `-u` is an optional flag
-* the `help` argument is used to specify text to be displayed for those options in help message
+* `-f`或`--file`声明为必需选项，它接受一个参数（文件名）
+* `-u`是一个可选的标记
+* `help`用于指定展示的文本和选项的帮助信息
 
 ```
-$ ./sort_file.py 
+$ ./sort_file.py
 usage: sort_file.py [-h] -f FILE [-u]
 sort_file.py: error: the following arguments are required: -f/--file
 
@@ -219,7 +219,7 @@ $ ./sort_file.py -f xyz.txt
 sort: cannot read: xyz.txt: No such file or directory
 ```
 
-* specifying positional arguments
+* 指定位置参数
 
 ```python
 #!/usr/bin/python3
@@ -235,11 +235,11 @@ total = args.num1 + args.num2
 print("{} + {} = {}".format(args.num1, args.num2, total))
 ```
 
-* more readable approach than manually parsing `sys.argv` as well as default help and error handling
-* type conversions required can be specified while building parser itself
+* 比手动解析`sys.argv`更可读的方法，同时提供默认帮助和错误处理
+* 需要的类型转换可以在构建参数时指定
 
 ```
-$ ./sum2nums_argparse.py 
+$ ./sum2nums_argparse.py
 usage: sum2nums_argparse.py [-h] num1 num2
 sum2nums_argparse.py: error: the following arguments are required: num1, num2
 
@@ -262,9 +262,9 @@ sum2nums_argparse.py: error: unrecognized arguments: 7
 ```
 
 
-**Further Reading**
+**进一步阅读**
 
-* [Python docs - argparse tutorial](https://docs.python.org/3/howto/argparse.html#id1)
-* [Python docs - argparse module](https://docs.python.org/3/library/argparse.html#module-argparse)
-* [argparse examples with explanation](https://stackoverflow.com/questions/7427101/dead-simple-argparse-example-wanted-1-argument-3-results)
-* [Python docs - getopt module](https://docs.python.org/3/library/getopt.html#module-getopt)
+* [Python文档 - argparse教程](https://docs.python.org/3/howto/argparse.html#id1)
+* [Python文档 - argparse模块](https://docs.python.org/3/library/argparse.html#module-argparse)
+* [argparse解释实例](https://stackoverflow.com/questions/7427101/dead-simple-argparse-example-wanted-1-argument-3-results)
+* [Python文档 - getopt模块](https://docs.python.org/3/library/getopt.html#module-getopt)
