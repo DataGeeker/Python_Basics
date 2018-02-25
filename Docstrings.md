@@ -1,35 +1,33 @@
-# <a name="docstrings"></a>Docstrings
+# <a name="docstrings"></a>文档字符串
 
-* [Style guide](#style-guide)
-* [Palindrome example](#palindrome-example)
+* [风格指南](#style-guide)
+* [回文示例](#palindrome-example)
 
 <br>
 
-### <a name="style-guide"></a>Style guide
+### <a name="style-guide"></a>风格指南
 
-Paraphrased from [Python docs - coding style](https://docs.python.org/3/tutorial/controlflow.html#intermezzo-coding-style)
+引用自[Python文档 - 编码风格](https://docs.python.org/3/tutorial/controlflow.html#intermezzo-coding-style)
 
-* Use 4-space indentation, and no tabs.
-    * 4 spaces are a good compromise between small indentation (allows greater nesting depth) and large indentation (easier to read). Tabs introduce confusion, and are best left out.
-* Wrap lines so that they don’t exceed 79 characters.
-    * This helps users with small displays and makes it possible to have several code files side-by-side on larger displays.
-* Use blank lines to separate functions and classes, and larger blocks of code inside functions.
-* When possible, put comments on a line of their own.
-* Use docstrings.
-* Use spaces around operators and after commas
-* Name your classes and functions consistently;
-    * the convention is to use CamelCase for classes and lower_case_with_underscores for functions and methods
+* 使用4-空格缩进，不用制表符
+* 包裹行让它们不超过79字符
+* 使用空行分隔函数、类和函数内较大的代码块
+* 尽量注释
+* 使用文档字符串
+* 逗号后、操作符周围使用空格
+* 统一命名类和函数
+    * 传统是对类使用骆驼拼写法，函数和方法使用小写和下划线
 
-**Style guides**
+**风格指南**
 
 * [PEP 0008](https://www.python.org/dev/peps/pep-0008/)
 * [Google - pyguide](https://google.github.io/styleguide/pyguide.html)
-* [elements of python style](https://github.com/amontalenti/elements-of-python-style)
-* [The Hitchhiker’s Guide to Python](http://docs.python-guide.org/en/latest/) - handbook of best practices
+* [python风格元素](https://github.com/amontalenti/elements-of-python-style)
+* [The Hitchhiker’s Guide to Python](http://docs.python-guide.org/en/latest/) - 最好的练习手册
 
 <br>
 
-### <a name="palindrome-example"></a>Palindrome example
+### <a name="palindrome-example"></a>回文示例
 
 ```python
 #!/usr/bin/python3
@@ -79,26 +77,25 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-
-* The first triple quoted strings marks the docstring for entire program
-* The second one inside `is_palindrome()` is specific for that function
+* 首个三引号括起的字符串标记了整个程序的文档字符串
+* 第二个是`is_palindrome()`函数特定的文档字符串
 
 ```
-$ ./palindrome.py 
+$ ./palindrome.py
 Enter a palindrome: as2
 Error: Characters other than alphabets and punctuations
 Enter a palindrome: "Dammit, I'm mad!"
 "Dammit, I'm mad!" is a palindrome
 
-$ ./palindrome.py 
+$ ./palindrome.py
 Enter a palindrome: a'a
 Error: Less than 3 alphabets
 Enter a palindrome: aaa
 aaa is NOT a palindrome
 ```
 
-* Let's see how docstrings can be used as help
-* Notice how docstring gets automatically formatted
+* 让我们看下文档字符串怎么作为帮助使用
+* 注意文档字符串是怎么自动格式化的
 
 ```python
 >>> import palindrome
@@ -112,24 +109,24 @@ NAME
 DESCRIPTION
     Allowed characters: alphabets and punctuations .,;:'"-!?
     Minimum alphabets: 3 and cannot be all same
-    
+
     Informs if input is invalid and asks user for input again
 
 FUNCTIONS
     is_palindrome(usr_ip)
         Checks if string is a palindrome
-        
+
         ValueError: if string is invalid
-        
+
         Returns True if palindrome, False otherwise
-    
+
     main()
 
 FILE
     /home/learnbyexample/python_programs/palindrome.py
 ```
 
-* One can get help on functions directly too
+* 也可以直接获取函数帮助
 
 ```python
 >>> help(palindrome.is_palindrome)
@@ -138,13 +135,13 @@ Help on function is_palindrome in module palindrome:
 
 is_palindrome(usr_ip)
     Checks if string is a palindrome
-    
+
     ValueError: if string is invalid
-    
+
     Returns True if palindrome, False otherwise
 ```
 
-* and of course test the functions
+* 测试函数
 
 ```python
 >>> palindrome.is_palindrome('aaa')
@@ -159,7 +156,7 @@ Enter a palindrome: Malayalam
 Malayalam is a palindrome
 ```
 
-**Further Reading**
+**进一步阅读**
 
-* [docstring formats](http://stackoverflow.com/questions/3898572/what-is-the-standard-python-docstring-format)
-* [exception message capturing](http://stackoverflow.com/questions/4690600/python-exception-message-capturing)
+* [文档字符串格式](http://stackoverflow.com/questions/3898572/what-is-the-standard-python-docstring-format)
+* [意外信息捕捉](http://stackoverflow.com/questions/4690600/python-exception-message-capturing)
