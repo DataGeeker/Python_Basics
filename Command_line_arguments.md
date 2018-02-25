@@ -1,4 +1,4 @@
-# <a name="command-line-arguments"></a>命令行念书
+# <a name="command-line-arguments"></a>命令行参数
 
 * [已知参数数目](#known-number-of-arguments)
 * [变长参数](#varying-number-of-arguments)
