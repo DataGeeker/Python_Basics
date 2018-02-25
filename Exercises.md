@@ -1,26 +1,26 @@
-# <a name="exercises"></a>Exercises
+# <a name="exercises"></a>练习
 
-1) [Variables and Print](#variables-and-print)
-2) [Functions](#functions)
-3) [Control structures](#control-structures)
-4) [List](#list)
-5) [File](#file)
-6) [Text processing](#text-processing)
-7) [Misc](#misc)
-
-<br>
-
-For some questions, Python program with assert statements is provided to automatically test your solution in the [exercise_files](https://github.com/learnbyexample/Python_Basics/tree/master/exercise_files) directory - for ex: [Q2a - length of integer numbers](https://github.com/learnbyexample/Python_Basics/blob/master/exercise_files/q2a_int_length.py). The directory also has sample input text files.
+1) [变量和打印](#variables-and-print)
+2) [函数](#functions)
+3) [控制结构](#control-structures)
+4) [列表](#list)
+5) [文件](#file)
+6) [文本处理](#text-processing)
+7) [混杂](#misc)
 
 <br>
 
-## <a name="variables-and-print"></a>1) Variables and Print
+对于某些问题，提供assert语法的Python程序会自动测试你在[练习文件](https://github.com/ShixiangWang/Python_Basics/tree/master/exercise_files)目录中的解决方案，比如练习[Q2a - 整数长度](https://github.com/learnbyexample/Python_Basics/blob/master/exercise_files/q2a_int_length.py)。该目录也包含了样例输入文本文件。
 
-**Q1a)** Ask user information, for ex: `name`, `department`, `college` etc and display them using print function
+<br>
+
+## <a name="variables-and-print"></a>1) 变量和打印
+
+**Q1a)** 询问用户信息，例如：`name`、`department`、 `college`等等并用`print`函数显示
 
 ```
 # Sample of how program might ask user input and display output afterwards
-$ ./usr_ip.py 
+$ ./usr_ip.py
 Please provide the following details
 Enter your name: learnbyexample
 Enter your department: ECE
@@ -34,9 +34,9 @@ College    : PSG Tech
 
 <br>
 
-## <a name="functions"></a>2) Functions
+## <a name="functions"></a>2) 函数
 
-**Q2a)** Returns length of integer numbers
+**Q2a)** 返回整数长度
 
 ```python
 >>> len_int(962306349871524124750813401378124)
@@ -56,7 +56,7 @@ Traceback (most recent call last):
 TypeError: provide only integer input
 ```
 
-**Q2b)** Returns True/False - two strings are same irrespective of lowercase/uppercase
+**Q2b)** 返回True/False - 两个大小写无关的相同字符串
 
 ```python
 >>> str_cmp('nice', 'nice')
@@ -69,7 +69,7 @@ True
 False
 ```
 
-**Q2c)** Returns True/False - two strings are anagrams (assume input consists of alphabets only)
+**Q2c)** 返回True/False - 两个字符串是相同字母但异位（假设只包含英文字母）
 
 ```python
 >>> str_anagram('god', 'Dog')
@@ -82,15 +82,15 @@ True
 
 <br>
 
-## <a name="control-structures"></a>3) Control structures
+## <a name="control-structures"></a>3) 控制结构
 
-**Q3a)** Write a function that returns
+**Q3a)** 写一个函数，返回
 
-* 'Good' for numbers divisable by 7
-* 'Food' for numbers divisable by 6
-* 'Universe' for numbers divisable by 42
-* 'Oops' for all other numbers
-* Only one output, divisable by 42 takes precedence
+* 'Good'，输入能被7整除
+* 'Food'，输入能被6整除
+* 'Universe'，输入能被42整除
+* 'Oops'所有其他数字
+* 仅1个输出，能被42整除的优先
 
 ```python
 >>> six_by_seven(66)
@@ -107,7 +107,7 @@ True
 'Oops'
 ```
 
-*bonus*: use a loop to print number and corresponding string for numbers 1 to 100
+*额外奖励*：使用一个循环输出1到100作为输入对应的输出数字和字符串
 
 ```python
 1 Oops
@@ -126,10 +126,10 @@ True
 100 Oops
 ```
 
-**Q3b)** Print all numbers from 1 to 1000 which reads the same in reversed form in both binary and decimal format
+**Q3b)** 打印所有1-1000能够二进制和十进制正反读都相同的数字
 
 ```
-$ ./dec_bin.py 
+$ ./dec_bin.py
 1 1
 3 11
 5 101
@@ -142,10 +142,10 @@ $ ./dec_bin.py
 717 1011001101
 ```
 
-*bonus*: add octal and hexadecimal checks as well
+*额外奖励*：添加八进制和十六进制
 
 ```
-$ ./dec_bin_oct.py 
+$ ./dec_bin_oct.py
 1 0b1 0o1
 3 0b11 0o3
 5 0b101 0o5
@@ -153,7 +153,7 @@ $ ./dec_bin_oct.py
 9 0b1001 0o11
 585 0b1001001001 0o1111
 
-$ ./dec_bin_oct_hex.py 
+$ ./dec_bin_oct_hex.py
 1 0b1 0o1 0x1
 3 0b11 0o3 0x3
 5 0b101 0o5 0x5
@@ -163,9 +163,9 @@ $ ./dec_bin_oct_hex.py
 
 <br>
 
-## <a name="list"></a>4) List
+## <a name="list"></a>4) 列表
 
-**Q4a)** Write a function that returns product of all numbers of a list
+**Q4a)** 写一个函数返回一个列表所有数字的乘积
 
 ```python
 >>> product([1, 4, 21])
@@ -174,7 +174,7 @@ $ ./dec_bin_oct_hex.py
 -3.48863356e+18
 ```
 
-*bonus*: works on any kind of iterable
+*额外奖励*：处理任意种类迭代
 
 ```python
 >>> product((-3, 11, 2))
@@ -185,12 +185,12 @@ $ ./dec_bin_oct_hex.py
 0
 >>> product(range(2, 6))
 120
-# can you identify what mathematical function the last one performs?
+# 你能识别最后一个使用的数学函数吗？
 ```
 
-**Q4b)** Write a function that returns nth lowest number of a list (or iterable in general). Return the lowest if second argument not specified
+**Q4b)** 写一个函数返回一个列表（或一般的迭代）第n小的数字W。如果第二个参数未指定就返回最小的。
 
-*Note* that if a list contains duplicates, they should be handled before determining nth lowest
+*注意* 如果一个列表包含重复，它们应该在决定第n个最小值前被处理
 
 ```python
 >>> nums = [42, 23421341, 234.2e3, 21, 232, 12312, -2343]
@@ -220,12 +220,12 @@ IndexError: list index out of range
 
 <br>
 
-## <a name="file"></a>5) File
+## <a name="file"></a>5) 文件
 
-**Q5a)** Print sum of all numbers from a file containing only single column and all numbers
+**Q5a)** 打印一个（单列全是数字）文件所有数字的总和
 
 ```
-$ cat f1.txt 
+$ cat f1.txt
 8
 53
 3.14
@@ -234,30 +234,30 @@ $ cat f1.txt
 100
 2937
 
-$ ./col_sum.py 
+$ ./col_sum.py
 10485.14
 ```
 
-**Q5b)** Print sum of all numbers (assume only positive integer numbers) from a file containing arbitrary string
+**Q5b)** 打印一个包含任意字符串文件其中数字（假设只有正整数）的总和
 
 ```
-$ cat f2.txt 
+$ cat f2.txt
 Hello123 World 35
 341 2
 Good 13day
 How are 1784 you
 
-$ ./extract_sum.py 
+$ ./extract_sum.py
 2298
 ```
 
 <br>
 
-## <a name="text-processing"></a>6) Text processing
+## <a name="text-processing"></a>6) 文本处理
 
-**Q6a)** Check if two words are same or differ by only one character (irrespective of case), input strings should have same length
+**Q6a)** 检查是否两个单词是否相同或者仅一个字符不同（大小写无关），输入字符串应该有相同的长度
 
-See also [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance)
+另见[Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance)
 
 ```python
 >>> is_one_char_diff('bar', 'bar')
@@ -281,9 +281,9 @@ False
 False
 ```
 
-**Q6b)** Check if a word is in ascending/descending alphabetic order or not (irrespective of case)
+**Q6b)** 检查一个单词是否以字母表顺序或逆序排列（无关大小写）
 
-Can you think of a way to do it only using built-in functions and string methods?
+你能思考一种仅用内置函数和字符串方法解决的办法吗？
 
 ```python
 >>> is_alpha_order('bot')
@@ -303,9 +303,9 @@ False
 True
 ```
 
-*bonus*: Check if all words in a sentence (assume only whitespace separated input) are in ascending/descending alphabetic order (irrespective of case)
+*额外奖励*：检查是否一个句子所有的单词（假设只有空格分隔输入）都按照字母表顺序或逆序排列（无关大小写）
 
-**hint** use a built-in function and generator expression
+**提示** 使用内置函数和生成器表达式
 
 ```bash
 >>> is_alpha_order_sentence('Toe got bit')
@@ -314,11 +314,11 @@ True
 False
 ```
 
-**Q6c)** Find the maximum nested depth of curly braces
+**Q6c)** 寻找大括号最大的嵌套深度
 
-Unbalanced or wrongly ordered braces should return `-1`
+不平衡或者错序的括号应该返回`-1`
 
-Iterating over input string is one way to solve this, another is to use regular expressions
+对输入字符串进行迭代是一种解决方式，另一种是使用正则表达式
 
 ```python
 >>> max_nested_braces('a*b')
@@ -335,7 +335,7 @@ Iterating over input string is one way to solve this, another is to use regular 
 -1
 ```
 
-*bonus*: empty braces, i.e `{}` should return `-1`
+*额外奖励*: 空括号，例如`{}`应该返回`-1`
 
 ```python
 >>> max_nested_braces('a*b+{}')
@@ -346,14 +346,14 @@ Iterating over input string is one way to solve this, another is to use regular 
 
 <br>
 
-## <a name="misc"></a>7) Misc
+## <a name="misc"></a>7) 混杂
 
-**Q7a)** Play a song (**hint** use `subprocess` module)
+**Q7a)** 播放一首歌 (**提示** 使用`subprocess`模块)
 
-**Q7b)** Open a browser along with any link, for ex: https://github.com/learnbyexample/Python_Basics (**hint** use `webbrowser` module)
-
-<br>
+**Q7b)** 用任意链接打开浏览器，例如： https://github.com/ShixiangWang/Python_Basics (**提示** 使用`webbrowser`模块)
 
 <br>
 
-For reference solutions, see [exercise_solutions](https://github.com/learnbyexample/Python_Basics/tree/master/exercise_solutions) directory
+<br>
+
+关于参考答案，查看[练习答案](https://github.com/learnbyexample/Python_Basics/tree/master/exercise_solutions)目录
