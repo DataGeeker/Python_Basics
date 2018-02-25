@@ -1,37 +1,37 @@
-# <a name="further-reading"></a>Further Reading
+# <a name="further-reading"></a>进一步阅读
 
-* [Standard topics not covered](#standard-topics-not-covered)
-* [Useful links on coding](#useful-links-on-coding)
-* [Python extensions](#python-extensions)
-
-<br>
-
-[Python curated resources](https://github.com/learnbyexample/scripting_course/blob/master/Python_curated_resources.md) - online courses, books, coding practice sites, frameworks for GUI/Game/Web, cheatsheet, online help forums, etc..
+* [未覆盖的标准主题](#standard-topics-not-covered)
+* [有用的编程链接](#useful-links-on-coding)
+* [Python扩展](#python-extensions)
 
 <br>
 
-### <a name="standard-topics-not-covered"></a>Standard topics not covered
-
-* [Python docs - classes](https://docs.python.org/3/tutorial/classes.html)
-* [Python docs - virtual environment](https://docs.python.org/3/tutorial/venv.html)
-* [Python docs - modules and packaging](https://docs.python.org/3/tutorial/modules.html)
-* [Python packaging guide](https://python-packaging-user-guide.readthedocs.org/en/latest/)
+[Python整合资源](https://github.com/learnbyexample/scripting_course/blob/master/Python_curated_resources.md) - 整理的编程、书籍、视频、音乐、游戏等等列表
 
 <br>
 
-### <a name="useful-links-on-coding"></a>Useful links on coding
+### <a name="standard-topics-not-covered"></a>未涵盖的标准主题
 
-* [Python docs - FAQ](https://docs.python.org/3/faq/index.html)
-* [list of common questions on stackoverflow](http://sopython.com/canon/)
-* [profiling Python code for performance](http://tutorials.pluralsight.com/python/quick-profiling-in-python)
+* [Python文档 - 类](https://docs.python.org/3/tutorial/classes.html)
+* [Python文档 - 虚拟环境](https://docs.python.org/3/tutorial/venv.html)
+* [Python文档 - 模块和打包](https://docs.python.org/3/tutorial/modules.html)
+* [Python打包指南](https://python-packaging-user-guide.readthedocs.org/en/latest/)
+
+<br>
+
+### <a name="useful-links-on-coding"></a>有用的编程链接
+
+* [Python文档 - FAQ](https://docs.python.org/3/faq/index.html)
+* [stackoverflow常见问题列表](http://sopython.com/canon/)
+* [Python性能概况](http://tutorials.pluralsight.com/python/quick-profiling-in-python)
 * [pylint](https://www.pylint.org/)
-* [code patterns](http://docs.quantifiedcode.com/python-code-patterns/)
-* [Performance tips](https://wiki.python.org/moin/PythonSpeed/PerformanceTips)
+* [编程模式](http://docs.quantifiedcode.com/python-code-patterns/)
+* [高性能技巧](https://wiki.python.org/moin/PythonSpeed/PerformanceTips)
 
 <br>
 
-### <a name="python-extensions"></a>Python extensions
+### <a name="python-extensions"></a>Python扩展
 
-* [Cython](http://cython.org/) - optimising static compiler for both the Python programming language and the extended Cython programming language
-* [Jython](http://www.jython.org/) - Python for the Java Platform
-* [NumPy](http://www.numpy.org/) - fundamental package for scientific computing with Python
+* [Cython](http://cython.org/) - 优化的Python编程和Cython编程语言静态编译器
+* [Jython](http://www.jython.org/) - Java平台Python
+* [NumPy](http://www.numpy.org/) - 基础科学计算包
